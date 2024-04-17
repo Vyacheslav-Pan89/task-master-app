@@ -27,7 +27,7 @@ public class User {
 
     String fullName;
 
-    @OneToMany(mappedBy = "assignedTo", cascade = CascadeType.ALL)
-    private List<Task> tasks;
+//    @OneToMany(mappedBy = "assignedTo", cascade = CascadeType.ALL)
+//    private List<Task> tasks;
 
 }

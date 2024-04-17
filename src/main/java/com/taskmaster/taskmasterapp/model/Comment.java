@@ -21,8 +21,8 @@ public class Comment {
 
     LocalDate created;
 
-    @ManyToOne
-    @JoinColumn(name = "task_id")
-    private Task task;
+//    @ManyToOne
+//    @JoinColumn(name = "task_id")
+//    private Task task;
 
 }
