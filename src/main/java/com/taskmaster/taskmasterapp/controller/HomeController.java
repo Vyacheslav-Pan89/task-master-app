@@ -1,3 +1,5 @@
+package com.taskmaster.taskmasterapp.controller;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -5,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class HomeController {
 
     @GetMapping("/")
-    public String index() {
-        return "index"; // This assumes that your index.html file is in src/main/resources/templates directory
+    public String home() {
+        return "home"; // This assumes that your home.html file is in src/main/resources/templates directory
     }
 }
