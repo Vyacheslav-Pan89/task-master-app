@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>TaskMaster</title>
+    <link href="/src/main/resources/static/css/home.css" rel="stylesheet" />
+  </head>
+  <body>
+    <h1>Welcome to TaskMaster</h1>
+
+    <!-- Login Form -->
+    <form action="/login" method="post">
+      <h2>Login</h2>
+      <div>
+        <label for="loginUsername">Username:</label>
+        <input type="text" id="loginUsername" name="username" required />
+      </div>
+      <div>
+        <label for="loginPassword">Password:</label>
+        <input type="password" id="loginPassword" name="password" required />
+      </div>
+      <button type="submit">Login</button>
+    </form>
+
+    <!-- Registration Option -->
+    <p>
+      Don't have an account?
+      <a href="/src/main/resources/templates/registration.html"
+        >Register here</a
+      >
+    </p>
+  </body>
+</html>
