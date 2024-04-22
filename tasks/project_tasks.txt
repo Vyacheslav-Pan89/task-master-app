@@ -1,0 +1,6 @@
+Technical requirements:
+create branch with name "develop" from main branch. It's developers convention. When you will work on new task please create new feature branch from 'develop' with related naming.
+When task will be completed and tested you can merge your feature branch to develop.
+
+1) Please fix db issues in terminal during app-run
+2) Create endpoint and controller which will handle login fields - validation, persistence to table and response to client.
