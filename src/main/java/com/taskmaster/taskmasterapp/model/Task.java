@@ -25,11 +25,4 @@ public class Task {
     LocalDate dueDate;
     boolean completed;
 
-//    @OneToMany(mappedBy = "task", cascade = CascadeType.ALL)
-//    private List<Comment> comments;
-//
-//    @ManyToOne
-//    @JoinColumn(name = "user_id")
-//    private User assignedTo;
-
 }

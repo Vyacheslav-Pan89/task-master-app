@@ -1,31 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>TaskMaster</title>
-   <link href="//resources/static/css/home.css" type="text/css" rel="stylesheet" />
-  </head>
-  <body>
-    <h1>Welcome to TaskMaster</h1>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8" />
+  <title>TaskMaster</title>
+  <link th:href="@{/static/css/home.css}" type="text/css" rel="stylesheet" />
+</head>
+<body>
+<h1>Welcome to TaskMaster</h1>
 
-    <!-- Login Form -->
-    <form action="" method="post">
-      <h2>Login</h2>
-      <div>
-        <label for="loginUsername">Username:</label>
-        <input type="text" id="loginUsername" name="username" required />
-      </div>
-      <div>
-        <label for="loginPassword">Password:</label>
-        <input type="password" id="loginPassword" name="password" required />
-      </div>
-      <button type="submit">Login</button>
-    </form>
+<!-- Login Form -->
+<form action="#" method="post" th:action="@{/login}" th:object="${loginRequest}">
+  <h2>Login</h2>
+  <div>
+    <label for="userName">Username:</label>
+    <input id="userName" th:field="*{userName}" required type="text"/>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input id="password" th:field="*{password}" required type="password"/>
+  </div>
+  <button type="submit">Login</button>
+</form>
 
-    <!-- Registration Option -->
-    <p>
-      Don't have an account?
-      <a href="//resources/templates/registration.html">Register here</a>
-    </p>
-  </body>
-</html>
+<!-- Registration Option -->
+<p>
+  Don't have an account?
+  <a href="//resources/templates/registration.html">Register here</a>
+</p>
+</body>
