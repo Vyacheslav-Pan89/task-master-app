@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <title>TaskMaster</title>
-  <link th:href="@{/static/css/home.css}" type="text/css" rel="stylesheet" />
+  <link th:href="@{/css/home.css}" type="text/css" rel="stylesheet" />
 </head>
 <body>
 <h1>Welcome to TaskMaster</h1>
 
 <!-- Login Form -->
-<form action="#" method="post" th:action="@{/login}" th:object="${loginRequest}">
+<form action="#" method="post" th:action="@{/loginSubmit}" th:object="${loginRequest}">
   <h2>Login</h2>
   <div>
     <label for="userName">Username:</label>
@@ -25,6 +25,6 @@
 <!-- Registration Option -->
 <p>
   Don't have an account?
-  <a href="//resources/templates/registration.html">Register here</a>
+  <a th:href="@{/registration}">Register here</a>
 </p>
 </body>
