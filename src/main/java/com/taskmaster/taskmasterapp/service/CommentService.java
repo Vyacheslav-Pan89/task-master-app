@@ -1,4 +1,7 @@
 package com.taskmaster.taskmasterapp.service;
 
-public interface CommentService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class CommentService {
 }

@@ -1,6 +1,6 @@
 package com.taskmaster.taskmasterapp.controller;
 
-import com.taskmaster.taskmasterapp.service.CommentServiceImpl;
+import com.taskmaster.taskmasterapp.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/comment")
 public class CommentController {
 
-    private final CommentServiceImpl commentService;
+    private final CommentService commentService;
 
     @Autowired
-    public CommentController(CommentServiceImpl commentService) {
+    public CommentController(CommentService commentService) {
         this.commentService = commentService;
     }
 }

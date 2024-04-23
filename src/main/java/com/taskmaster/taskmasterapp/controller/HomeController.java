@@ -1,6 +1,6 @@
 package com.taskmaster.taskmasterapp.controller;
 
-import com.taskmaster.taskmasterapp.security.LoginRequest;
+import com.taskmaster.taskmasterapp.model.LoginRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;

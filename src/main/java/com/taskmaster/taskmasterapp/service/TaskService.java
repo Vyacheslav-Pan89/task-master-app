@@ -1,4 +1,7 @@
 package com.taskmaster.taskmasterapp.service;
 
-public interface TaskService {
+import org.springframework.stereotype.Service;
+
+@Service
+public class TaskService {
 }

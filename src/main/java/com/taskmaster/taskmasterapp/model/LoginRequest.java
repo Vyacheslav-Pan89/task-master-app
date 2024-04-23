@@ -1,23 +1,24 @@
-package com.taskmaster.taskmasterapp.security;
+package com.taskmaster.taskmasterapp.model;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-
-//TODO: this class not related to security - please move it to models.
 @Setter
 @Getter
-// TODO: if you are using lombok library please use annotation for constructor also (same for rest models if needed)
+@NoArgsConstructor
+@AllArgsConstructor
 public class LoginRequest {
 
 
     //Todo: it will more advanced if you will use additional validations - as for now I can enter even one symbol and it will passes
     @NotBlank
+    @Size(min = 3, max = 16, message = "Use 3 to 16 symbols")
     private String userName;
     @NotBlank
     private String password;
 
-    public LoginRequest() {
-    }
 }

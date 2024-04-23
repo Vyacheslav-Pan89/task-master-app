@@ -14,6 +14,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table
 public class Task {
 
     // TODO: same comment as in Comment.class
