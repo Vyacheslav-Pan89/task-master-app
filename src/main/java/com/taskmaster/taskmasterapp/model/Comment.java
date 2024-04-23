@@ -14,6 +14,8 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity
 public class Comment {
+
+    //TODO: why this class is entity but not table? It should have separate table or it will be nested in other entity?
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

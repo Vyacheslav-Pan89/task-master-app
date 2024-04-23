@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "UserData")
+@Entity(name = "UserData") // TODO: why do you need custom entity name?
 @Table(name = "user_data")
 public class User {
 

@@ -26,6 +26,7 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<String> login(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest, BindingResult bindingResult) {
 
+        //TODO: if user inputs incorrect symbols it should see detailed message and should be returned login page to make another try
         if (bindingResult.hasErrors()) {
             return ResponseEntity.badRequest().body("Access Denied");
         }
