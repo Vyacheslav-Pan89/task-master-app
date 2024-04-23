@@ -13,7 +13,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-
+@Table
 public class Comment {
 
     //TODO: why this class is entity but not table? It should have separate table or it will be nested in other entity?

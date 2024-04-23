@@ -1,6 +1,8 @@
 package com.taskmaster.taskmasterapp.controller;
+
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.repository.UserRepository;
+import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,11 +15,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Controller
 public class RegistrationController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
     @Autowired
-    public RegistrationController(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    public RegistrationController(UserService userService) {
+        this.userService = userService;
     }
 
     @GetMapping("/registration")
@@ -28,7 +30,8 @@ public class RegistrationController {
 
     @PostMapping("/registrationSubmit")
     public String handleRegistration(@Valid @RequestBody User user, BindingResult bindingResult) {
-    return "some String"; // WIP
+        userService.add(user);
+        return "home"; // WIP
     }
 
 }

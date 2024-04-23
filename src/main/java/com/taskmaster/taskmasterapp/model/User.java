@@ -24,7 +24,7 @@ public class User {
 
     @NotBlank(message = "Can't be blank")
     @Column(unique = true)
-    @Size(min = 3, max = 30)
+    @Size(min = 3, max = 16, message = "Use 3 to 16 symbols")
     String userName;
 
     @NotBlank(message = "Can't be blank")
