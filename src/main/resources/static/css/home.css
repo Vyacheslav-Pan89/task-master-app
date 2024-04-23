@@ -49,3 +49,8 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+.errors {
+   font-weight: bold;
+   font-color: red;
+}

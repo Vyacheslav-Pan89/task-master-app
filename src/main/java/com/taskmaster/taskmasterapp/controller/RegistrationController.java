@@ -1,7 +1,7 @@
 package com.taskmaster.taskmasterapp.controller;
 
 import com.taskmaster.taskmasterapp.model.User;
-import com.taskmaster.taskmasterapp.repository.UserRepository;
+
 import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class RegistrationController {
     @PostMapping("/registrationSubmit")
     public String handleRegistration(@Valid @RequestBody User user, BindingResult bindingResult) {
         userService.add(user);
-        return "home"; // WIP
+        return "home";
     }
 
 }

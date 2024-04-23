@@ -13,11 +13,13 @@
   <h2>Login</h2>
   <div>
     <label for="userName">Username:</label>
-    <input id="userName" th:field="*{userName}" required type="text"/>
+    <p class="errors" th:errors="*{userName}"></p>
+    <input id="userName" th:field="*{userName}"  required type="text"/>
   </div>
   <div>
     <label for="password">Password:</label>
-    <input id="password" th:field="*{password}" required type="password"/>
+    <p class="errors" th:errors="*{password}"></p>
+    <input  id="password" th:field="*{password}" required type="password"/>
   </div>
   <button type="submit">Login</button>
 </form>
