@@ -13,12 +13,15 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+
 public class Comment {
 
     //TODO: why this class is entity but not table? It should have separate table or it will be nested in other entity?
+    //A: need to overthink what to do with it. later.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
     String text;
 
     LocalDate created;

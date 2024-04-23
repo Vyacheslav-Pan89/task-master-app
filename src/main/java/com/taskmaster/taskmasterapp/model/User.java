@@ -14,7 +14,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "UserData") // TODO: why do you need custom entity name?
+@Entity
 @Table(name = "user_data")
 public class User {
 
@@ -24,7 +24,7 @@ public class User {
 
     @NotBlank(message = "Can't be blank")
     @Column(unique = true)
-    @Size(min = 2, max = 30)
+    @Size(min = 3, max = 30)
     String userName;
 
     @NotBlank(message = "Can't be blank")

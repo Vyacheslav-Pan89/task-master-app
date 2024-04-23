@@ -1,7 +1,8 @@
 package com.taskmaster.taskmasterapp.security;
 
+import com.taskmaster.taskmasterapp.model.LoginRequest;
 import com.taskmaster.taskmasterapp.model.User;
-import com.taskmaster.taskmasterapp.service.UserServiceImpl;
+import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -14,9 +15,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class LoginController {
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
     @Autowired
-    public LoginController(UserServiceImpl userService) {
+    public LoginController(UserService userService) {
         this.userService = userService;
     }
 
