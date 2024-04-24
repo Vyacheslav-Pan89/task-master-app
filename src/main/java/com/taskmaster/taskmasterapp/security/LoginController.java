@@ -1,10 +1,13 @@
 package com.taskmaster.taskmasterapp.security;
 
 import com.taskmaster.taskmasterapp.model.LoginRequest;
+import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -28,20 +31,27 @@ public class LoginController {
     @PostMapping("/loginSubmit")
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
                               BindingResult bindingResult,
-                              Model model,
-                              HttpServletResponse response) {
-
-
+                              Model model) {
         //TODO: if user inputs incorrect symbols it should see detailed message and should be returned login page to make another try
 
+
         if (bindingResult.hasErrors()) {
-            // for instance
-            response.setHeader("name of your header", "value of your header");
             model.addAttribute("errors", bindingResult.getAllErrors());
             return "home";
         }
 
+        User user = userService.findUserByName(loginRequest.getUserName());
+        if (user == null) {
+            model.addAttribute("message", "Wrong login or password");
+            return "home";
+        }
 
+        if (!user.getPassword().equals(loginRequest.getPassword())) {
+            model.addAttribute("message", "Wrong login or password");
+            return "home";
+        }
+
+        model.addAttribute("user", userService.findUserByUserName(loginRequest.getUserName()));
         return "redirect:/user";
     }
 }

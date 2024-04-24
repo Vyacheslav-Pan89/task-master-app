@@ -1,13 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="UTF-8" />
+<head>
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>User Management - TaskMaster</title>
-   <link rel="stylesheet" th:href="@{/css/user.css}"/>
-  </head>
-  <body>
-    <h1>User Management</h1>
-    <!-- Add your user management interface here -->
-  </body>
+    <link rel="stylesheet" th:href="@{/css/user.css}"/>
+</head>
+<body>
+<h1>User Management</h1>
+<!-- Add your user management interface here -->
+<h1>User Information</h1>
+<table>
+    <tr>
+        <th>User Name</th>
+        <th>Password</th>
+        <th>Email</th>
+        <th>Full Name</th>
+    </tr>
+    <!-- Assuming userParams is a list of user objects passed from your controller -->
+    <tr th:each="user : ${userParams}">
+        <td th:text="${user.userName}">User Name</td>
+        <td th:text="${user.password}">Password</td>
+        <td th:text="${user.email}">Email</td>
+        <td th:text="${user.fullName}">Full Name</td>
+    </tr>
+</table>
+</body>
 </html>

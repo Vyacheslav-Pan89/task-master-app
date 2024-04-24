@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class RegistrationController {
@@ -29,9 +30,9 @@ public class RegistrationController {
     }
 
     @PostMapping("/registrationSubmit")
-    public String handleRegistration(@Valid @RequestBody User user, BindingResult bindingResult) {
+    public String handleRegistration(User user) {
         userService.add(user);
-        return "home";
+        return "redirect:/";
     }
 
 }
