@@ -16,8 +16,6 @@ import java.time.LocalDate;
 @Table
 public class Comment {
 
-    //TODO: why this class is entity but not table? It should have separate table or it will be nested in other entity?
-    //A: need to overthink what to do with it. later.
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;

@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -21,6 +22,12 @@ public class LoginController {
     @Autowired
     public LoginController(UserService userService) {
         this.userService = userService;
+    }
+
+    @GetMapping("/")
+    public String login(Model model) {
+        model.addAttribute("loginRequest", new LoginRequest());
+        return "login";
     }
 
     //TODO: you are working with MVC so you need to return to client html page.
@@ -37,21 +44,21 @@ public class LoginController {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
-            return "home";
+            return "login";
         }
 
         User user = userService.findUserByName(loginRequest.getUserName());
         if (user == null) {
             model.addAttribute("message", "Wrong login or password");
-            return "home";
+            return "login";
         }
 
         if (!user.getPassword().equals(loginRequest.getPassword())) {
             model.addAttribute("message", "Wrong login or password");
-            return "home";
+            return "login";
         }
 
         model.addAttribute("user", userService.findUserByUserName(loginRequest.getUserName()));
-        return "redirect:/user";
+        return "redirect:/home";
     }
 }

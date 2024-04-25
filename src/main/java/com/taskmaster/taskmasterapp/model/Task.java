@@ -17,7 +17,7 @@ import java.util.List;
 @Table
 public class Task {
 
-    // TODO: same comment as in Comment.class
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
