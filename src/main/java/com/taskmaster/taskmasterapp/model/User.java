@@ -29,7 +29,7 @@ public class User {
     String userName;
 
     @NotBlank(message = "Can't be blank")
-    //@Size(min = 3, max = 16, message = "Use 8 to 16 symbols")
+    //@Size(min = 8, max = 16, message = "Use 8 to 16 symbols") // commented for test purpose. uncomment after test
     String password;
 
     @NotBlank(message = "Can't be blank")

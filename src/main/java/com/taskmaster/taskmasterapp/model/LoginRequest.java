@@ -20,7 +20,7 @@ public class LoginRequest {
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
     private String userName;
 
-    //@Size(min = 3, max = 16, message = "Use 8 to 16 symbols")
+    //@Size(min = 8, max = 16, message = "Use 8 to 16 symbols") // commented for test purpose. uncomment after test
     @NotBlank
     private String password;
 
