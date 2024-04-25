@@ -29,6 +29,7 @@ public class User {
     String userName;
 
     @NotBlank(message = "Can't be blank")
+            //TODO: why not uncommented?
     //@Size(min = 8, max = 16, message = "Use 8 to 16 symbols") // commented for test purpose. uncomment after test
     String password;
 
