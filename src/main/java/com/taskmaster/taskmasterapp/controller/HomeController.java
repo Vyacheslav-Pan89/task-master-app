@@ -13,4 +13,5 @@ public class HomeController {
         model.addAttribute("loginRequest", new LoginRequest());
         return "home";
     }
+
 }

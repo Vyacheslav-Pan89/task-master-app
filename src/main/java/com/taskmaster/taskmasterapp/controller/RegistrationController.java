@@ -30,7 +30,11 @@ public class RegistrationController {
     }
 
     @PostMapping("/registrationSubmit")
-    public String handleRegistration(User user) {
+    public String handleRegistration(@Valid User user, BindingResult bindingResult, Model model) {
+        if(bindingResult.hasErrors()){
+            model.addAttribute("errors", bindingResult.getAllErrors());
+            return "registration";
+        }
         userService.add(user);
         return "redirect:/";
     }

@@ -12,18 +12,22 @@
       <form action="#" th:action="@{/registrationSubmit}"  method="post" th:object="${user}">
         <div class="form-group">
           <label for="username" >Username</label>
+          <p class="errors" th:errors="*{userName}"></p>
           <input type="text" id="username" name="username" th:field="*{userName}" required />
         </div>
         <div class="form-group">
           <label for="email">Email</label>
+          <p class="errors" th:errors="*{email}"></p>
           <input type="email" id="email" name="email" th:field="*{email}" required />
         </div>
         <div class="form-group">
           <label for="password">Password</label>
+          <p class="errors" th:errors="*{password}"></p>
           <input type="password" id="password" name="password" th:field="*{password}" required />
         </div>
         <div class="form-group">
           <label for="fullName">Full Name</label>
+          <p class="errors" th:errors="*{fullName}"></p>
           <input type="text" id="fullName" name="fullName" th:field="*{fullName}" required />
         </div>
         <div class="form-group">

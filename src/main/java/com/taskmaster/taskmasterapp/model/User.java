@@ -3,6 +3,7 @@ package com.taskmaster.taskmasterapp.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -36,6 +37,7 @@ public class User {
     String email;
 
     @NotBlank(message = "Can't be blank")
+    @Pattern(regexp = "[a-zA-Z ]+")
     String fullName;
 
 }
