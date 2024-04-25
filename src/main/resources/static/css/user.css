@@ -1,62 +1,33 @@
-/* Styles for user management page */
+/* user.css */
 
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  margin: 0;
-  padding: 0;
-}
-
+/* Container styles */
 .container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px; /* Limit container width */
+    margin: 0 auto; /* Center container horizontally */
+    padding: 20px; /* Add padding */
+    background-color: #ffffff; /* White background */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
 h1 {
-  text-align: center;
-  margin-bottom: 20px;
+    text-align: center; /* Center heading */
+    margin-bottom: 20px; /* Add margin below heading */
 }
 
-.user-list {
-  list-style: none;
-  padding: 0;
-}
-
-.user-list li {
-  background-color: #f9f9f9;
-  border-radius: 5px;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-.user-list li:last-child {
-  margin-bottom: 0;
-}
-
-.user-list li .user-name {
-  font-weight: bold;
-}
-
-.user-list li .user-email {
-  color: #555;
-}
-
+/* Table styles */
 table {
-    width: 100%;
-    border-collapse: collapse;
+    border-collapse: collapse; /* Collapse table borders */
+    width: 100%; /* Full width */
 }
 
 th, td {
-    border: 1px solid black;
-    padding: 8px;
-    text-align: left;
+    border: 1px solid #dddddd; /* Light gray border */
+    text-align: left; /* Align text to left */
+    padding: 8px; /* Add padding */
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #008080; /* Greenish-blue background for table headers */
+    color: white; /* White text color for table headers */
 }

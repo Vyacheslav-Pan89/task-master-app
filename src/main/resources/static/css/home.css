@@ -1,15 +1,38 @@
 /* styles.css */
+
+/* Body styles */
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #008080; /* Dark greenish-blue text color */
+    font-family: Arial, sans-serif; /* Use a common font for text */
+}
+
+/* Button styles */
+.button {
+    background-color: #008080; /* Greenish-blue background for buttons */
+    color: white; /* White text color for buttons */
+    border: none; /* Remove border */
+    padding: 10px 20px; /* Add padding */
+    cursor: pointer; /* Change cursor to pointer on hover */
+}
+
+.button:hover {
+    opacity: 0.8; /* Reduce opacity on hover for visual feedback */
+}
+
+/* Table styles */
 table {
-    border-collapse: collapse;
-    width: 100%;
+    border-collapse: collapse; /* Collapse table borders */
+    width: 100%; /* Full width */
 }
 
 th, td {
-    border: 1px solid #dddddd;
-    text-align: left;
-    padding: 8px;
+    border: 1px solid #dddddd; /* Light gray border */
+    text-align: left; /* Align text to left */
+    padding: 8px; /* Add padding */
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #008080; /* Greenish-blue background for table headers */
+    color: white; /* White text color for table headers */
 }

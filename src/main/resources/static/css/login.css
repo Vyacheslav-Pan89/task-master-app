@@ -1,56 +1,48 @@
-/* home.css */
+/* login.css */
 
-/* Style for the login form */
+/* Form styles */
 form {
-    margin-top: 20px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    max-width: 300px;
+    max-width: 400px; /* Limit form width */
+    margin: 0 auto; /* Center form horizontally */
+    padding: 20px; /* Add padding */
+    background-color: #ffffff; /* White background */
+    border-radius: 5px; /* Add rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow */
 }
 
-h2 {
-    margin-top: 0;
+.form-group {
+    margin-bottom: 20px; /* Add margin between form groups */
+}
+
+label {
+    display: block; /* Display labels as block elements */
+    margin-bottom: 5px; /* Add margin below labels */
 }
 
 input[type="text"],
-input[type="password"],
-button {
-    width: 100%;
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box; /* Ensure padding and border are included in width */
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    border: 1px solid #cccccc; /* Light gray border */
+    border-radius: 5px; /* Add rounded corners */
 }
 
-button {
-    background-color: #4CAF50; /* Green */
-    color: white;
-    cursor: pointer;
+button[type="submit"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Add padding */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Add rounded corners */
+    background-color: #008080; /* Greenish-blue background */
+    color: white; /* White text color */
+    cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-button:hover {
-    background-color: #45a049; /* Darker green */
-}
-
-/* Style for the registration link */
-p {
-    margin-top: 20px;
-    text-align: center;
-}
-
-a {
-    color: #007bff; /* Blue */
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
+button[type="submit"]:hover {
+    opacity: 0.8; /* Reduce opacity on hover for visual feedback */
 }
 
 .errors {
-   font-weight: bold;
-   font-color: red;
+    color: red; /* Red color for error messages */
+    margin-top: 5px; /* Add margin above error messages */
 }
