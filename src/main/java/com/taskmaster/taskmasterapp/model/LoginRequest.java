@@ -17,8 +17,10 @@ public class LoginRequest {
     //Todo: it will more advanced if you will use additional validations - as for now I can enter even one symbol and it will passes
 
     @NotBlank
-    @Size(min = 3, max = 16, message = "Use 3 to 16 symbols")
+    @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
     private String userName;
+
+    //@Size(min = 3, max = 16, message = "Use 8 to 16 symbols")
     @NotBlank
     private String password;
 

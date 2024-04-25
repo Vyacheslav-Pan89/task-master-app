@@ -25,10 +25,11 @@ public class User {
 
     @NotBlank(message = "Can't be blank")
     @Column(unique = true)
-    @Size(min = 3, max = 16, message = "Use 3 to 16 symbols")
+    @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
     String userName;
 
     @NotBlank(message = "Can't be blank")
+    //@Size(min = 3, max = 16, message = "Use 8 to 16 symbols")
     String password;
 
     @NotBlank(message = "Can't be blank")
@@ -37,7 +38,7 @@ public class User {
     String email;
 
     @NotBlank(message = "Can't be blank")
-    @Pattern(regexp = "[a-zA-Z ]+")
+    @Pattern(regexp = "[a-zA-Z ]+", message = "Enter your full name only with letters")
     String fullName;
 
 }
