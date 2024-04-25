@@ -1,10 +1,9 @@
 package com.taskmaster.taskmasterapp.controller;
-import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 public class UserController {
@@ -16,7 +15,7 @@ public class UserController {
     }
 
     @GetMapping("/user")
-    public String userPage(){
+    public String userPage() {
         return "user";
     }
 

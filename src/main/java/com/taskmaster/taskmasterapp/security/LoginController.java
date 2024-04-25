@@ -39,6 +39,7 @@ public class LoginController {
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
                               BindingResult bindingResult,
                               Model model) {
+
         //TODO: if user inputs incorrect symbols it should see detailed message and should be returned login page to make another try
 
 
