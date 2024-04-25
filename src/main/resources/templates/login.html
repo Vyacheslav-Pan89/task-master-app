@@ -6,27 +6,32 @@
   <link th:href="@{/css/login.css}" type="text/css" rel="stylesheet" />
 </head>
 <body>
-<h1>Welcome to TaskMaster</h1>
+<div class="container">
+  <h1>Welcome to TaskMaster</h1>
 
-<!-- Login Form -->
-<form action="#" method="post" th:action="@{/loginSubmit}" th:object="${loginRequest}">
-  <h2>Login</h2>
-  <div>
-    <label for="userName">Username:</label>
-    <p class="errors" th:errors="*{userName}"></p>
-    <input id="userName" th:field="*{userName}"  required type="text"/>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <p class="errors" th:errors="*{password}"></p>
-    <input  id="password" th:field="*{password}" required type="password"/>
-  </div>
-  <button type="submit">Login</button>
-</form>
+  <!-- Warning Messages -->
+  <p class="warning" th:text="${message}"></p>
 
-<!-- Registration Option -->
-<p>
-  Don't have an account?
-  <a th:href="@{/registration}">Register here</a>
-</p>
+  <!-- Login Form -->
+  <form action="#" method="post" th:action="@{/loginSubmit}" th:object="${loginRequest}">
+    <h2>Login</h2>
+    <div class="form-group">
+      <label for="userName">Username:</label>
+      <p class="errors" th:errors="*{userName}"></p>
+      <input id="userName" th:field="*{userName}"  required type="text"/>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <p class="errors" th:errors="*{password}"></p>
+      <input  id="password" th:field="*{password}" required type="password"/>
+    </div>
+    <button type="submit">Login</button>
+  </form>
+
+  <!-- Registration Option -->
+  <p class="registration-option">
+    Don't have an account? <a th:href="@{/registration}">Register here</a>
+  </p>
+</div>
 </body>
+</html>

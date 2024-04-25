@@ -1,5 +1,10 @@
 /* login.css */
 
+.container {
+    text-align: center; /* Center-align content */
+    margin-bottom: 20px; /* Add margin below container */
+}
+
 /* Form styles */
 form {
     max-width: 400px; /* Limit form width */
@@ -42,7 +47,13 @@ button[type="submit"]:hover {
     opacity: 0.8; /* Reduce opacity on hover for visual feedback */
 }
 
-.errors {
+.errors,
+.warning {
     color: red; /* Red color for error messages */
-    margin-top: 5px; /* Add margin above error messages */
+    margin-top: 10px; /* Add margin above error messages */
+}
+
+.registration-option {
+    margin-top: 20px; /* Add margin above the registration option */
+    text-align: center; /* Center-align the registration option */
 }
