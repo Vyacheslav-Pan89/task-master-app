@@ -1,13 +1,10 @@
-package com.taskmaster.taskmasterapp.security;
+package com.taskmaster.taskmasterapp.controller;
 
 import com.taskmaster.taskmasterapp.model.LoginRequest;
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.service.UserService;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -15,11 +12,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
-//TODO; this class not related to security. Moved it to controller package
+//TODO; this class not related to security. Moved it to controller package DONE!!!
 @Controller
 public class LoginController {
 
     private final UserService userService;
+
     @Autowired
     public LoginController(UserService userService) {
         this.userService = userService;

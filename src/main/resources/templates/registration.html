@@ -1,39 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Registration - TaskMaster</title>
-    <link rel="stylesheet" th:href="@{/css/registration.css}" />
-  </head>
-  <body>
-    <div class="container">
-      <h1>Registration</h1>
-      <form action="#" th:action="@{/registrationSubmit}"  method="post" th:object="${user}">
+    <link rel="stylesheet" th:href="@{/css/registration.css}"/>
+</head>
+<body>
+<div class="container">
+    <h1>Registration</h1>
+    <form action="#" th:action="@{/registrationSubmit}" method="post" th:object="${user}">
         <div class="form-group">
-          <label for="username" >Username</label>
-          <p class="errors" th:errors="*{userName}"></p>
-          <input type="text" id="username" name="username" th:field="*{userName}" required />
+            <label for="username">Username</label>
+            <p class="errors" th:errors="*{userName}"></p>
+            <p class="errors" th:text="${messageUserName}"></p>
+            <input type="text" id="username" name="username" th:field="*{userName}"/>
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
-          <p class="errors" th:errors="*{email}"></p>
-          <input type="email" id="email" name="email" th:field="*{email}" required />
+            <label for="email">Email</label>
+            <p class="errors" th:errors="*{email}"></p>
+            <p class="errors" th:text="${messageEmail}"></p>
+            <input id="email" name="email" th:field="*{email}" type="text"/>
         </div>
         <div class="form-group">
-          <label for="password">Password</label>
-          <p class="errors" th:errors="*{password}"></p>
-          <input type="password" id="password" name="password" th:field="*{password}" required />
+            <label for="password">Password</label>
+            <p class="errors" th:errors="*{password}"></p>
+            <input type="password" id="password" name="password" th:field="*{password}" />
         </div>
         <div class="form-group">
-          <label for="fullName">Full Name</label>
-          <p class="errors" th:errors="*{fullName}"></p>
-          <input type="text" id="fullName" name="fullName" th:field="*{fullName}" required />
+            <label for="fullName">Full Name</label>
+            <p class="errors" th:errors="*{fullName}"></p>
+            <input id="fullName" name="fullName" th:field="*{fullName}" type="text"/>
         </div>
         <div class="form-group">
-          <button type="submit">Register</button>
+            <button type="submit">Register</button>
         </div>
-      </form>
-    </div>
-  </body>
+    </form>
+</div>
+</body>
 </html>

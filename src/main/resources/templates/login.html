@@ -18,12 +18,12 @@
     <div class="form-group">
       <label for="userName">Username:</label>
       <p class="errors" th:errors="*{userName}"></p>
-      <input id="userName" th:field="*{userName}"  required type="text"/>
+      <input id="userName" th:field="*{userName}" type="text"/>
     </div>
     <div class="form-group">
       <label for="password">Password:</label>
       <p class="errors" th:errors="*{password}"></p>
-      <input  id="password" th:field="*{password}" required type="password"/>
+      <input  id="password" th:field="*{password}" type="password"/>
     </div>
     <button type="submit">Login</button>
   </form>

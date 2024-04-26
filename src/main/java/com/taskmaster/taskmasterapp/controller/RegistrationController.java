@@ -1,7 +1,6 @@
 package com.taskmaster.taskmasterapp.controller;
 
 import com.taskmaster.taskmasterapp.model.User;
-
 import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +30,17 @@ public class RegistrationController {
     @PostMapping("/registrationSubmit")
     public String handleRegistration(@Valid User user, BindingResult bindingResult, Model model) {
 
-        if(bindingResult.hasErrors()){
+        if(userService.userNameExist(user)){
+            model.addAttribute("messageUserName", "Try different user name");
+            return "registration";
+        }
+
+        if(userService.emailExist(user)){
+            model.addAttribute("messageEmail", "Try different email");
+            return "registration";
+        }
+
+        if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
             return "registration";
         }

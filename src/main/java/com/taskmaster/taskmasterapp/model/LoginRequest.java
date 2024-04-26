@@ -13,12 +13,12 @@ import lombok.Setter;
 @AllArgsConstructor
 public class LoginRequest {
 
-    @NotBlank
+    @NotBlank(message = "Can't be blank")
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
     private String userName;
 
-    //@Size(min = 8, max = 16, message = "Use 8 to 16 symbols") // commented for test purpose. uncomment after test
-    @NotBlank
+    @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
+    @NotBlank(message = "Can't be blank")
     private String password;
 
 }
