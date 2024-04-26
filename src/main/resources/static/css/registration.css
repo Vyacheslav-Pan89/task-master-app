@@ -46,3 +46,8 @@ button[type="submit"] {
 button[type="submit"]:hover {
     opacity: 0.8; /* Reduce opacity on hover for visual feedback */
 }
+.errors,
+.warning {
+    color: red; /* Red color for error messages */
+    margin-top: 10px; /* Add margin above error messages */
+}
