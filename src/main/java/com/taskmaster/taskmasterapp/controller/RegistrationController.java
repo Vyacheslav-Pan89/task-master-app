@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 
 
+//TODO: Controller should have base path. Something like '/registration' from your first method
 @Controller
 public class RegistrationController {
 
@@ -21,30 +22,39 @@ public class RegistrationController {
         this.userService = userService;
     }
 
+    //TODO: url can be removed. It will take class mapping
     @GetMapping("/registration")
     public String registrationForm(Model model) {
         model.addAttribute("user", new User());
         return "registration";
     }
 
+    //TODO: please rename it to '/submit'. Full path will be /registration/submit
     @PostMapping("/registrationSubmit")
     public String handleRegistration(@Valid User user, BindingResult bindingResult, Model model) {
 
-        if(userService.userNameExist(user)){
-            model.addAttribute("messageUserName", "Try different user name");
-            return "registration";
-        }
 
-        if(userService.emailExist(user)){
-            model.addAttribute("messageEmail", "Try different email");
-            return "registration";
-        }
+        //TODO: why you are going to DB every time before model fields validation? First should be performed validation on User.class
+        // level and afterwards when in passes it should go to DB and check if this login and email not reserved. delete these two if blocks and all will works.
+        // You can add to 'spring.jpa.show-sql=true' to config file and you will see in terminal how often you invokes DB
+
+//        if(userService.userNameExist(user)){
+//            model.addAttribute("messageUserName", "Try different user name");
+//            return "registration";
+////        }
+//
+//        if(userService.emailExist(user)){
+//            model.addAttribute("messageEmail", "Try different email");
+//            return "registration";
+//        }
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
             return "registration";
         }
 
+        //TODO: please create new method in user service to check if unique fields not reserved. If some fields are reserved I as user want to see proper message.
+        // Something similar from your first two 'if'
         userService.add(user);
         return "redirect:/";
     }

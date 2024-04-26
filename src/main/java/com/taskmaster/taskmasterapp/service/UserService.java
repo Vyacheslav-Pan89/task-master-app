@@ -30,6 +30,8 @@ public class UserService {
         return userRepository.findByUserName(userName);
     }
 
+
+    // TODO: You can combine these 2 fields check and please use streams
     public boolean userNameExist(User user) {
         List<User> userList = userRepository.findAll();
         for (User obj : userList) {
