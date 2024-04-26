@@ -26,11 +26,13 @@ public class User {
     @NotBlank(message = "Can't be blank")
     @Column(unique = true)
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
+    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Use only letters and number. Spaces are ot allowed.")
     String userName;
 
     @NotBlank(message = "Can't be blank")
     //TODO: why not uncommented? DONE!!!
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
+    @Pattern(regexp = "^\\S*$", message = "Spaces are ot allowed.")
     String password;
 
     @NotBlank(message = "Can't be blank")
@@ -40,6 +42,7 @@ public class User {
 
     @NotBlank(message = "Can't be blank")
     @Pattern(regexp = "[a-zA-Z ]+", message = "Enter your full name only with letters")
+
     String fullName;
 
 }
