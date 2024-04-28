@@ -9,10 +9,13 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 
-//TODO: Controller should have base path. Something like '/registration' from your first method
+
+//TODO: Controller should have base path. Something like '/registration' from your first method DONE!!!
 @Controller
+@RequestMapping("/registration")
 public class RegistrationController {
 
     private final UserService userService;
@@ -22,15 +25,15 @@ public class RegistrationController {
         this.userService = userService;
     }
 
-    //TODO: url can be removed. It will take class mapping
-    @GetMapping("/registration")
+    //TODO: url can be removed. It will take class mapping DONE!!!
+    @GetMapping
     public String registrationForm(Model model) {
         model.addAttribute("user", new User());
         return "registration";
     }
 
     //TODO: please rename it to '/submit'. Full path will be /registration/submit
-    @PostMapping("/registrationSubmit")
+    @PostMapping("/submit")
     public String handleRegistration(@Valid User user, BindingResult bindingResult, Model model) {
 
 
