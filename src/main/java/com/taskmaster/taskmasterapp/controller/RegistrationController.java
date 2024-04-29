@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
-
 //TODO: Controller should have base path. Something like '/registration' from your first method DONE!!!
 @Controller
 @RequestMapping("/registration")
@@ -32,24 +31,14 @@ public class RegistrationController {
         return "registration";
     }
 
-    //TODO: please rename it to '/submit'. Full path will be /registration/submit
+    //TODO: please rename it to '/submit'. Full path will be /registration/submit DONE!!!
     @PostMapping("/submit")
     public String handleRegistration(@Valid User user, BindingResult bindingResult, Model model) {
 
 
         //TODO: why you are going to DB every time before model fields validation? First should be performed validation on User.class
         // level and afterwards when in passes it should go to DB and check if this login and email not reserved. delete these two if blocks and all will works.
-        // You can add to 'spring.jpa.show-sql=true' to config file and you will see in terminal how often you invokes DB
-
-//        if(userService.userNameExist(user)){
-//            model.addAttribute("messageUserName", "Try different user name");
-//            return "registration";
-////        }
-//
-//        if(userService.emailExist(user)){
-//            model.addAttribute("messageEmail", "Try different email");
-//            return "registration";
-//        }
+        // You can add to 'spring.jpa.show-sql=true' to config file and you will see in terminal how often you invokes DB DONE!!!
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
@@ -57,9 +46,15 @@ public class RegistrationController {
         }
 
         //TODO: please create new method in user service to check if unique fields not reserved. If some fields are reserved I as user want to see proper message.
-        // Something similar from your first two 'if'
+        // Something similar from your first two 'if' DONE!!!
+
+        if (userService.checkNewUserCredentials(user) != null) {
+            model.addAttribute("message", userService.checkNewUserCredentials(user));
+            return "registration";
+        }
+
         userService.add(user);
-        return "redirect:/";
+        return "redirect:/login";
     }
 
 }

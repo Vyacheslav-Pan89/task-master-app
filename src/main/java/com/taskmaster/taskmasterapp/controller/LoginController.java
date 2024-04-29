@@ -36,7 +36,7 @@ public class LoginController {
     // Best way is to refactor method's return entity to String and you will able to return 'home' page with validation message from template
     // If you want to set additional info to headers, you can use HttpServletResponse as an input argument as you can see below
 
-    @PostMapping("/Submit")
+    @PostMapping("/submit")
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
                               BindingResult bindingResult,
                               Model model) {

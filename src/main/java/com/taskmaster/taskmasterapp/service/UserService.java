@@ -31,24 +31,20 @@ public class UserService {
     }
 
 
-    // TODO: You can combine these 2 fields check and please use streams
-    public boolean userNameExist(User user) {
-        List<User> userList = userRepository.findAll();
-        for (User obj : userList) {
-            if (obj.getUserName().equals(user.getUserName())) {
-                return true;
-            }
-        }
-        return false;
-    }
+    // TODO: You can combine these 2 fields check and please use streams DONE!!!
 
-    public boolean emailExist(User user) {
+    public String checkNewUserCredentials(User newUser) {
+
         List<User> userList = userRepository.findAll();
-        for(User obj : userList){
-            if (obj.getEmail().equals(user.getEmail())) {
-                return true;
-            }
+
+        boolean userNameExist = userList.stream().anyMatch(user -> user.getUserName().equals(newUser.getUserName()));
+        boolean emailExist = userList.stream().anyMatch(user -> user.getEmail().equals(newUser.getEmail()));
+
+        if(userNameExist){
+            return "User with this user name is already registered. Try a different user name";
+        } else if (emailExist) {
+            return "User with this email is already registered. Try a different email";
         }
-        return false;
+        return null;
     }
 }

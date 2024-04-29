@@ -16,7 +16,7 @@ public class LoginRequest {
 
     @NotBlank(message = "Can't be blank")
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
-    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Use only letters and number. Spaces are ot allowed.")
+    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Use only letters and number. Spaces are not allowed.")
     private String userName;
 
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")

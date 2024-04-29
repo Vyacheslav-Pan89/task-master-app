@@ -11,15 +11,14 @@
     <h1>Registration</h1>
     <form action="#" th:action="@{/registration/submit}" method="post" th:object="${user}">
         <div class="form-group">
+            <p class="errors" th:text="${message}"></p>
             <label for="username">Username</label>
             <p class="errors" th:errors="*{userName}"></p>
-            <p class="errors" th:text="${messageUserName}"></p>
             <input type="text" id="username" name="username" th:field="*{userName}"/>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <p class="errors" th:errors="*{email}"></p>
-            <p class="errors" th:text="${messageEmail}"></p>
             <input id="email" name="email" th:field="*{email}" type="text"/>
         </div>
         <div class="form-group">
