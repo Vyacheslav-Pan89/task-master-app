@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 //TODO; this class not related to security. Moved it to controller package DONE!!!
 @Controller
-@RequestMapping("/login")
 public class LoginController {
 
     private final UserService userService;
@@ -25,7 +24,7 @@ public class LoginController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/login")
     public String login(Model model) {
         model.addAttribute("loginRequest", new LoginRequest());
         return "login";
@@ -36,7 +35,7 @@ public class LoginController {
     // Best way is to refactor method's return entity to String and you will able to return 'home' page with validation message from template
     // If you want to set additional info to headers, you can use HttpServletResponse as an input argument as you can see below
 
-    @PostMapping("/submit")
+    @PostMapping("/login/submit")
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
                               BindingResult bindingResult,
                               Model model) {
