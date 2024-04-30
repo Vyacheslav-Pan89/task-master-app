@@ -2,5 +2,18 @@ Technical requirements:
 create branch with name "develop" from main branch. It's developers convention. When you will work on new task please create new feature branch from 'develop' with related naming.
 When task will be completed and tested you can merge your feature branch to develop.
 
-1) Please fix db issues in terminal during app-run
-2) Create endpoint and controller which will handle login fields - validation, persistence to table and response to client.
+1) Please fix db issues in terminal during app-run. Create endpoint and controller which will handle login fields - validation, persistence to table and response to client. - Done!
+
+2) Let's create registration flow more interesting. Please create from develop new branch - 'Task-2-secured_registration'
+- please modify registration password: password should consist at least from one numerical symbol, one uppercase letter and on special symbol (!+/=_)
+- now password persists to DB in none secured view. No one,even admins must not see user's password. It can be achieved with password hashing. Please use any hash functions which you like (most popular: MD5)
+- most interesting part: As a user after submitting registration form I want to be redirected to new page where will information that on my email was sent confirmation link. When I push on this link I want to see that
+ my registration is complete and now I can login with my credentials.
+ What should be implemented:
+ - mail should be sent with generated working link
+ - this link should be handled by your app
+ - before user pushes this link he can't login
+ - user should be activated (can login) after he pushes this link
+ - generated link should be unique for each user
+ - think how you will handle this link in controller, which data should be in the link and how it will cooperate with DB
+ - good luck!
