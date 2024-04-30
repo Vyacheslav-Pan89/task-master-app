@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-//TODO; this class not related to security. Moved it to controller package DONE!!!
 @Controller
 @RequestMapping("/")
 public class LoginController {
@@ -31,19 +30,10 @@ public class LoginController {
         model.addAttribute("loginRequest", new LoginRequest());
         return "login";
     }
-
-    //TODO: you are working with MVC so you need to return to client html page.
-    // ResponseEntity is ideal when you need to manipulate with data (json, xml, and etc) but it's not your case.
-    // Best way is to refactor method's return entity to String and you will able to return 'home' page with validation message from template
-    // If you want to set additional info to headers, you can use HttpServletResponse as an input argument as you can see below
-
     @PostMapping("/submit")
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
                               BindingResult bindingResult,
                               Model model) {
-
-        //TODO: if user inputs incorrect symbols it should see detailed message and should be returned login page to make another try Done!!!
-
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());

@@ -42,7 +42,7 @@ public class User {
 
     @NotBlank(message = "Can't be blank")
     @Pattern(regexp = "[a-zA-Z ]+", message = "Enter your full name only with letters")
-
     String fullName;
+
 
 }
