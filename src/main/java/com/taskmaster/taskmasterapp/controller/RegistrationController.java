@@ -36,7 +36,6 @@ public class RegistrationController {
             return "registration";
         }
 
-        //TODO: better to invoke method just once and use initialized variable after with string or null
         String validationMessage = userService.checkNewUserCredentials(user);
 
         if (validationMessage != null) {

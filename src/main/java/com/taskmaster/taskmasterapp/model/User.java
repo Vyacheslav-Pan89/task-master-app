@@ -30,7 +30,6 @@ public class User {
     String userName;
 
     @NotBlank(message = "Can't be blank")
-    //TODO: why not uncommented? DONE!!!
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
     @Pattern(regexp = "^\\S*$", message = "Spaces are ot allowed.")
     String password;

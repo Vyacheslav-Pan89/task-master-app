@@ -30,6 +30,7 @@ public class LoginController {
         model.addAttribute("loginRequest", new LoginRequest());
         return "login";
     }
+
     @PostMapping("/submit")
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
                               BindingResult bindingResult,
