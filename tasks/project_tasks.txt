@@ -4,7 +4,7 @@ When task will be completed and tested you can merge your feature branch to deve
 
 1) Please fix db issues in terminal during app-run. Create endpoint and controller which will handle login fields - validation, persistence to table and response to client. - Done!
 
-2) Let's create registration flow more interesting. Please create from develop new branch - 'Task-2-secured_registration'
+2) Let's create registration flow more interesting. Please create from develop new branch - 'Task-2-secured_registration' DONE!!!
 - please modify registration password: password should consist at least from one numerical symbol, one uppercase letter and on special symbol (!+/=_)
 - now password persists to DB in none secured view. No one,even admins must not see user's password. It can be achieved with password hashing. Please use any hash functions which you like (most popular: MD5)
 - most interesting part: As a user after submitting registration form I want to be redirected to new page where will information that on my email was sent confirmation link. When I push on this link I want to see that
