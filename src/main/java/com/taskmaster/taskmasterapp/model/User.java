@@ -19,6 +19,10 @@ import lombok.Setter;
 @Table(name = "user_data")
 public class User {
 
+    private final String PASSWORD_PATTERN_REGEXP = "^(?=.*[0-9])(?=.*[A-Z])(?=.*[!+/=_])\\S$";
+    private final String WRONG_PASSWORD_MESSAGE = "Password should consist at least from one numerical symbol" +
+            ", one uppercase letter and one special symbol (!+/=_). Spaces are not allowed!";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
@@ -26,12 +30,12 @@ public class User {
     @NotBlank(message = "Can't be blank")
     @Column(unique = true)
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
-    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Use only letters and number. Spaces are ot allowed.")
+    @Pattern(regexp = "^[a-zA-Z0-9]*$", message = "Use only letters and numbers. Spaces are ot allowed.")
     String userName;
 
     @NotBlank(message = "Can't be blank")
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
-    @Pattern(regexp = "^\\S*$", message = "Spaces are ot allowed.")
+    @Pattern(regexp = PASSWORD_PATTERN_REGEXP, message = WRONG_PASSWORD_MESSAGE)
     String password;
 
     @NotBlank(message = "Can't be blank")
