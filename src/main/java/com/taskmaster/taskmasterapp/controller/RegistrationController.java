@@ -28,7 +28,7 @@ public class RegistrationController {
         return "registration";
     }
 
-    @PostMapping("/submit")
+    @PostMapping
     public String handleRegistration(@Valid User user, BindingResult bindingResult, Model model) {
 
         if (bindingResult.hasErrors()) {

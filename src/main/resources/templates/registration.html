@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h1>Registration</h1>
-    <form action="#" th:action="@{/registration/submit}" method="post" th:object="${user}">
+    <form action="#" th:action="@{/registration}" method="post" th:object="${user}">
         <div class="form-group">
             <p class="errors" th:text="${message}"></p>
             <label for="username">Username</label>

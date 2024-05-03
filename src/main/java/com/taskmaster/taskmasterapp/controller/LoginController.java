@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping({"/", "/login"})
 public class LoginController {
 
     private final UserService userService;
@@ -24,14 +24,14 @@ public class LoginController {
         this.userService = userService;
     }
 
-    @GetMapping({"/", "/login"})
+    @GetMapping
 
     public String login(Model model) {
         model.addAttribute("loginRequest", new LoginRequest());
         return "login";
     }
 
-    @PostMapping("/submit")
+    @PostMapping
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
                               BindingResult bindingResult,
                               Model model) {
