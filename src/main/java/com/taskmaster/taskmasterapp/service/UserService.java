@@ -2,20 +2,26 @@ package com.taskmaster.taskmasterapp.service;
 
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.repository.UserRepository;
+import com.taskmaster.taskmasterapp.security.PasswordHashingUtil;
+import jakarta.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
+
 public class UserService {
 
     private static final String LOGIN_EXIST_MESSAGE = "User with this user name is already registered. Try a different user name";
     private static final String EMAIL_EXIST_MESSAGE = "User with this email is already registered. Try a different email";
 
     private final UserRepository userRepository;
+    private final PasswordHashingUtil passwordHashingUtil;
+
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, PasswordHashingUtil passwordHashingUtil) {
         this.userRepository = userRepository;
+        this.passwordHashingUtil = passwordHashingUtil;
     }
 
 
@@ -24,7 +30,20 @@ public class UserService {
     }
 
     public void add(User user) {
-        userRepository.save(user);
+
+        System.out.println("Plain password: " + user.getPassword());
+
+        String hashedPassword = passwordHashingUtil.hashPassword(user.getPassword());
+        System.out.println("Hashed password: " + hashedPassword);
+
+        user.setHashedPassword(hashedPassword);
+
+        try {
+            userRepository.save(user);
+        } catch (ConstraintViolationException e) {
+            System.out.println("Validation failed: " + e.getMessage());
+            throw e;
+        }
     }
 
     public User findUserByUserName(String userName) {

@@ -17,6 +17,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Entity
 @Table(name = "user_data")
+
 public class User {
 
 
@@ -34,7 +35,10 @@ public class User {
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
     @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!+/=@_])[A-Za-z\\d!+/=@_]+$", message = "Password should consist at least from one numerical symbol" +
             ", one uppercase letter and one special symbol (!+/=@_). Spaces are not allowed!")
+    @Transient
     String password;
+
+    String hashedPassword;
 
     @NotBlank(message = "Can't be blank")
     @Email(message = "Enter valid email")
