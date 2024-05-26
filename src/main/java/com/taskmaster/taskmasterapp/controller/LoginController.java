@@ -47,6 +47,7 @@ public class LoginController {
             return "login";
         }
 
+        // TODO: You have made 'password' transient, so it won't be persistent in DB, hence when you retrieve data from DB in line 44 null will be mapped to 'password' -> NPE will be thrown. Solution can be found in comments in User.class
         if (!user.getPassword().equals(loginRequest.getPassword())) {
             model.addAttribute("message", "Wrong login or password");
             return "login";

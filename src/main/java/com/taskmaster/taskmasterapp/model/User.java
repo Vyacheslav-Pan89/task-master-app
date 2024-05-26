@@ -35,6 +35,8 @@ public class User {
     @Size(min = 4, max = 16, message = "Use 4 to 16 symbols")
     @Pattern(regexp = "^(?=.*[A-Z])(?=.*\\d)(?=.*[!+/=@_])[A-Za-z\\d!+/=@_]+$", message = "Password should consist at least from one numerical symbol" +
             ", one uppercase letter and one special symbol (!+/=@_). Spaces are not allowed!")
+
+    // This field can be removed, as you have hashedPassword field
     @Transient
     String password;
 
