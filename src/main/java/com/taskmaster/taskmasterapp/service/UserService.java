@@ -3,7 +3,6 @@ package com.taskmaster.taskmasterapp.service;
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.repository.UserRepository;
 import com.taskmaster.taskmasterapp.security.PasswordHashingUtil;
-import jakarta.validation.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,24 +30,12 @@ public class UserService {
 
     public void add(User user) {
 
-        //TODO: this line should be removed in PROD for security purpose
-        System.out.println("Plain password: " + user.getPassword());
-
         String hashedPassword = passwordHashingUtil.hashPassword(user.getPassword());
-
-        //TODO: no reasons for it to print to console, also can be removed
-        System.out.println("Hashed password: " + hashedPassword);
 
         user.setHashedPassword(hashedPassword);
 
-        try {
             userRepository.save(user);
 
-            //TODO: What is the reason of this catch? Why it should produce this exception?
-        } catch (ConstraintViolationException e) {
-            System.out.println("Validation failed: " + e.getMessage());
-            throw e;
-        }
     }
 
     public User findUserByUserName(String userName) {

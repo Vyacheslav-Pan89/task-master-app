@@ -9,12 +9,12 @@ import java.security.NoSuchAlgorithmException;
 public class PasswordHashingUtil {
 
     public String hashPassword(String inputPassword) {
-        //null is redundant
-        MessageDigest md = null;
+
+        MessageDigest md;
         try {
             md = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
-            // better practise is to create your own custom exception which extends RunTimeException. It's Purpose to catch it and handle in future using ControllerAdvice
+            //TODO: Create your own custom exception which extends RunTimeException. It's Purpose to catch it and handle in future using ControllerAdvice
             throw new RuntimeException(e);
         }
         md.update(inputPassword.getBytes());
