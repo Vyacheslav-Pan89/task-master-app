@@ -51,5 +51,9 @@ public class User {
     @Pattern(regexp = "[a-zA-Z ]+", message = "Enter your full name only with letters")
     String fullName;
 
+    boolean isActivated;
+
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
+    private ActivationToken activationToken;
 
 }

@@ -8,7 +8,9 @@ When task will be completed and tested you can merge your feature branch to deve
 - please modify registration password: password should consist at least from one numerical symbol, one uppercase letter and on special symbol (!+/=_)
 - now password persists to DB in none secured view. No one,even admins must not see user's password. It can be achieved with password hashing.
 Please use any hash functions which you like (most popular: MD5)
-- most interesting part: As a user after submitting registration form I want to be redirected to new page where will information that on my email was sent confirmation link. When I push on this link I want to see that
+- most interesting part: As a user after submitting registration form
+I want to be redirected to new page where will information that on my
+email was sent confirmation link. When I push on this link I want to see that
  my registration is complete and now I can login with my credentials.
  What should be implemented:
  - mail should be sent with generated working link
