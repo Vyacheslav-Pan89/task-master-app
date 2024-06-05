@@ -51,6 +51,7 @@ public class User {
     @Pattern(regexp = "[a-zA-Z ]+", message = "Enter your full name only with letters")
     String fullName;
 
+    //TODO: good pattern to use Enum in this case. It will give you more flexibility in future scenarios. Something like: NOT_REGISTERED, PENDING, ACTIVATED
     boolean isActivated;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
