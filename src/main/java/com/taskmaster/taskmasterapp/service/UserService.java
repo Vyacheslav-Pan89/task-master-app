@@ -1,6 +1,7 @@
 package com.taskmaster.taskmasterapp.service;
 
 import com.taskmaster.taskmasterapp.model.ActivationToken;
+import com.taskmaster.taskmasterapp.model.Status;
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.repository.ActivationTokenRepository;
 import com.taskmaster.taskmasterapp.repository.UserRepository;
@@ -38,10 +39,8 @@ public class UserService {
 
     public void add(User user) {
 
-        String hashedPassword = passwordHashingUtil.hashPassword(user.getPassword());
+        String hashedPassword = passwordHashingUtil.hashPassword(user.getHashedPassword());
         user.setHashedPassword(hashedPassword);
-
-        user.setActivated(false);
 
         ActivationToken activationToken = new ActivationToken();
         activationToken.setToken(tokenGenerator.generateToken());
@@ -66,6 +65,13 @@ public class UserService {
 
     @Transactional
     public void activateUser(String token) {
+
+
+        User user = userRepository.findUserByTokenId(token).orElse(null);
+        if (user != null) {
+            user.setStatus(Status.ACTIVATED);
+            userRepository.save(user);
+        }
 
         // TODO: Need to think over user activation logic. Till now had 500 errors
 

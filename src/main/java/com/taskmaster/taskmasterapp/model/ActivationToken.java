@@ -14,6 +14,7 @@ public class ActivationToken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "token_id")
     Long id;
 
     String token;

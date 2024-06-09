@@ -28,7 +28,6 @@ public class LoginController {
     }
 
     @GetMapping
-
     public String login(Model model) {
         model.addAttribute("loginRequest", new LoginRequest());
         return "login";
@@ -36,8 +35,8 @@ public class LoginController {
 
     @PostMapping
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
-                              BindingResult bindingResult,
-                              Model model) {
+                                      BindingResult bindingResult,
+                                      Model model) {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
@@ -54,7 +53,6 @@ public class LoginController {
             model.addAttribute("message", "Wrong login or password");
             return "login";
         }
-
 
         model.addAttribute("user", userService.findUserByUserName(loginRequest.getUserName()));
         return "redirect:/home";
