@@ -66,14 +66,11 @@ public class UserService {
     @Transactional
     public void activateUser(String token) {
 
-
         User user = userRepository.findUserByTokenId(token).orElse(null);
         if (user != null) {
             user.setStatus(Status.ACTIVATED);
             userRepository.save(user);
         }
-
-        // TODO: Need to think over user activation logic. Till now had 500 errors
 
     }
 

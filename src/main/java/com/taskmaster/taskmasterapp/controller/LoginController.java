@@ -1,6 +1,7 @@
 package com.taskmaster.taskmasterapp.controller;
 
 import com.taskmaster.taskmasterapp.model.LoginRequest;
+import com.taskmaster.taskmasterapp.model.Status;
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.security.PasswordHashingUtil;
 import com.taskmaster.taskmasterapp.service.UserService;
@@ -51,6 +52,11 @@ public class LoginController {
 
         if (!user.getHashedPassword().equals(passwordHashingUtil.hashPassword(loginRequest.getPassword()))) {
             model.addAttribute("message", "Wrong login or password");
+            return "login";
+        }
+
+        if(!user.getStatus().equals(Status.ACTIVATED)){
+            model.addAttribute("message", "Account activation is required!");
             return "login";
         }
 
