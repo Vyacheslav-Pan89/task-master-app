@@ -45,6 +45,8 @@ public class LoginController {
         }
 
         User user = userService.findUserByName(loginRequest.getUserName());
+
+        //TODO: to much service logic in controller. Please extract all these ifs to separate method, with validation naming
         if (user == null) {
             model.addAttribute("message", "Wrong login or password");
             return "login";
@@ -60,6 +62,7 @@ public class LoginController {
             return "login";
         }
 
+        //TODO: duplicated method with line 47
         model.addAttribute("user", userService.findUserByUserName(loginRequest.getUserName()));
         return "redirect:/home";
     }

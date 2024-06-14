@@ -42,6 +42,8 @@ public class RegistrationController {
             return "registration";
         }
 
+
+        //TODO: please create separate mapping method with all builder logic from dto to user
         User user = User.builder()
                 .userName(userDTO.getUserName())
                 .email(userDTO.getEmail())
