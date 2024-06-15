@@ -52,7 +52,7 @@ public class LoginController {
 
         String message = loginService.loginPermission(user, loginRequest);
         if (!message.equals("OK")) {
-            model.addAttribute("message", "Wrong login or password");
+            model.addAttribute("message", message);
             return "login";
         }
 
