@@ -1,9 +1,9 @@
 package com.taskmaster.taskmasterapp.controller;
 
 import com.taskmaster.taskmasterapp.model.LoginRequest;
-import com.taskmaster.taskmasterapp.model.Status;
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.security.PasswordHashingUtil;
+import com.taskmaster.taskmasterapp.service.LoginService;
 import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,13 @@ public class LoginController {
 
     private final UserService userService;
     private final PasswordHashingUtil passwordHashingUtil;
+    private final LoginService loginService;
 
     @Autowired
-    public LoginController(UserService userService, PasswordHashingUtil passwordHashingUtil) {
+    public LoginController(UserService userService, PasswordHashingUtil passwordHashingUtil, LoginService loginService) {
         this.userService = userService;
         this.passwordHashingUtil = passwordHashingUtil;
+        this.loginService = loginService;
     }
 
     @GetMapping
@@ -46,24 +48,16 @@ public class LoginController {
 
         User user = userService.findUserByName(loginRequest.getUserName());
 
-        //TODO: to much service logic in controller. Please extract all these ifs to separate method, with validation naming
-        if (user == null) {
+        //TODO: to much service logic in controller. Please extract all these ifs to separate method, with validation naming DONE?
+
+        String message = loginService.loginPermission(user, loginRequest);
+        if (!message.equals("OK")) {
             model.addAttribute("message", "Wrong login or password");
             return "login";
         }
 
-        if (!user.getHashedPassword().equals(passwordHashingUtil.hashPassword(loginRequest.getPassword()))) {
-            model.addAttribute("message", "Wrong login or password");
-            return "login";
-        }
-
-        if(!user.getStatus().equals(Status.ACTIVATED)){
-            model.addAttribute("message", "Account activation is required!");
-            return "login";
-        }
-
-        //TODO: duplicated method with line 47
-        model.addAttribute("user", userService.findUserByUserName(loginRequest.getUserName()));
+        //TODO: duplicated method with line 47 DONE?
+        model.addAttribute("user", user);
         return "redirect:/home";
     }
 }

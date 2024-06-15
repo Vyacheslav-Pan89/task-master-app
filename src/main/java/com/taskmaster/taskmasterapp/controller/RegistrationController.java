@@ -1,9 +1,9 @@
 package com.taskmaster.taskmasterapp.controller;
 
-import com.taskmaster.taskmasterapp.model.Status;
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.model.UserDTO;
 import com.taskmaster.taskmasterapp.service.EmailService;
+import com.taskmaster.taskmasterapp.service.UserBuilderService;
 import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,13 @@ public class RegistrationController {
 
     private final UserService userService;
     private final EmailService emailService;
+    private final UserBuilderService userBuilderService;
 
     @Autowired
-    public RegistrationController(UserService userService, EmailService emailService) {
+    public RegistrationController(UserService userService, EmailService emailService, UserBuilderService userBuilderService) {
         this.userService = userService;
         this.emailService = emailService;
+        this.userBuilderService = userBuilderService;
     }
 
     @GetMapping
@@ -43,14 +45,8 @@ public class RegistrationController {
         }
 
 
-        //TODO: please create separate mapping method with all builder logic from dto to user
-        User user = User.builder()
-                .userName(userDTO.getUserName())
-                .email(userDTO.getEmail())
-                .fullName(userDTO.getFullName())
-                .hashedPassword(userDTO.getPassword())
-                .status(Status.NOT_ACTIVATED)
-                .build();
+        //TODO: please create separate mapping method with all builder logic from dto to user DONE!!!
+        User user = userBuilderService.buildUser(userDTO);
 
         String validationMessage = userService.checkNewUserCredentials(user);
 
