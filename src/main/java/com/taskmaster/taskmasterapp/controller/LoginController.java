@@ -38,8 +38,8 @@ public class LoginController {
 
     @PostMapping
     public String handleLogin(@Valid @ModelAttribute("loginRequest") LoginRequest loginRequest,
-                                      BindingResult bindingResult,
-                                      Model model) {
+                              BindingResult bindingResult,
+                              Model model) {
 
         if (bindingResult.hasErrors()) {
             model.addAttribute("errors", bindingResult.getAllErrors());
