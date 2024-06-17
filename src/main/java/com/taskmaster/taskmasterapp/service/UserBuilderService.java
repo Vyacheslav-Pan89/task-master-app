@@ -5,6 +5,7 @@ import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.model.UserDTO;
 import org.springframework.stereotype.Service;
 
+//TODO: this class can be removed
 @Service
 public class UserBuilderService {
 

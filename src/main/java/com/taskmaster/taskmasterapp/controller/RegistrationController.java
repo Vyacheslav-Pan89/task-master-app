@@ -45,8 +45,8 @@ public class RegistrationController {
         }
 
 
-        //TODO: please create separate mapping method with all builder logic from dto to user DONE!!!
-        User user = userBuilderService.buildUser(userDTO);
+        //TODO: no need to create separate service to map pojo. You can remap it in entity class
+        User user = User.mapToUser(userDTO);
 
         String validationMessage = userService.checkNewUserCredentials(user);
 

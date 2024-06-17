@@ -31,5 +31,14 @@ public class User {
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private ActivationToken activationToken;
 
+    public static User mapToUser(UserDTO userDTO) {
 
+        return User.builder()
+                .userName(userDTO.getUserName())
+                .email(userDTO.getEmail())
+                .fullName(userDTO.getFullName())
+                .hashedPassword(userDTO.getPassword())
+                .status(Status.NOT_ACTIVATED)
+                .build();
+    }
 }

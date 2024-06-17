@@ -19,6 +19,7 @@ public class LoginService {
         this.passwordHashingUtil = passwordHashingUtil;
     }
 
+    //TODO: please remove unused method
 //    public String loginPermission(User user, LoginRequest loginRequest) {
 //
 //        if (user == null) {
