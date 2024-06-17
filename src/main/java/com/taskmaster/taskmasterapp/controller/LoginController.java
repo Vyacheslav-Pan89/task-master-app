@@ -48,15 +48,20 @@ public class LoginController {
 
         User user = userService.findUserByName(loginRequest.getUserName());
 
-        //TODO: to much service logic in controller. Please extract all these ifs to separate method, with validation naming DONE?
 
-        String message = loginService.loginPermission(user, loginRequest);
-        if (!message.equals("OK")) {
-            model.addAttribute("message", message);
+
+//        String message = loginService.loginPermission(user, loginRequest);
+//        if (!message.equals("OK")) {
+//            model.addAttribute("message", message);
+//            return "login";
+//        }
+
+        //TODO: boolean is more usable here
+        if (!loginService.isValidationSucceed(user, loginRequest, model))
+        {
             return "login";
         }
 
-        //TODO: duplicated method with line 47 DONE?
         model.addAttribute("user", user);
         return "redirect:/home";
     }
