@@ -20,3 +20,43 @@ email was sent confirmation link. When I push on this link I want to see that
  - generated link should be unique for each user
  - think how you will handle this link in controller, which data should be in the link and how it will cooperate with DB
  - good luck!
+
+ 3) Time for new task! Your service will be working as task manager, so let's make it more interesting. As a user I should create my own tasks,
+ but I'm to lazy to think about it and it will be nice if your service will assign to me some tasks according to my input criteria.
+ It means that some service should generate tasks and I as user will choose if proposed task suits for me or not.
+ So let's create task generator service!
+
+Please create new branch task-3.1-refactor-to-multi-module-project
+
+First of all need some technical amendments. You need to refactor your project to multi-module project.
+It means that project's name will stay the same, but everything should be as task-master-app sub-modules.
+For instance this module with all related files can be named as "authentication".
+Create second module with name "task-generator" - this module with be responsible for generating, sorting, persisting and everything related to tasks
+
+
+Please create new branch task-3.2-task-generator-implementation
+This module should have embedded tasks for user. What it means? You can create some amount of tasks which should located in DB during module start-up.
+These tasks can be distinguished by some topics. For instance topics can be like: users age range, sports tasks, learning tasks, tasks by genders and etc.
+Step by step and create in the beginning just one topic.
+
+Please create new branch task-3.3-task-generator-server
+Your task generator module will communicate via REST with authentication module so you should implement rest controllers which will receive requests.
+Requests can be like:
+- generate task for user with this topic
+- assign specific task to user
+- delete task from user
+... you can add more if needed
+
+Please create new branch task-3.5-communication-with-task-generator-server
+Your first module "authentication" will send request to "task-generator" module. So you need to create service where will be implemented communication logic.
+Use restTemplate from spring. It's very easy. Add to .html page "generate" button for generating tasks.
+How it will look?
+After successful login I can either add my own task either ask service to generate it for me.
+There should be "generate" button with some drop down list with all topics that can generate your service (mentioned in task-3.2).
+After submit I want to see what service can propose to me. Better if it will be in random sequence retrieved from DB. If I'm interested in this task I will assign it to me
+if not, I will try to generate another one and so on.
+
+Please think carefully how tasks and users will be linked in DB.
+Your submodules will have their individual pom.xml and common one. Think which dependencies can be in common pom.xml.
+Modules can be connected to one DB
+This is complicated task, so take your time and don't rush.
