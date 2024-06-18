@@ -25,16 +25,4 @@ public class PasswordHashingUtil {
         }
         return stringBuilder.toString();
     }
-
-    // nice! Can be implemented also using jdk17 embedded HexFormat lib:
-
-//    public static String hashPassword2(String inputPassword) {
-//     .....
-
-//        md.update(inputPassword.getBytes());
-//        byte[] digest = md.digest();
-//
-//        HexFormat hexFormat = HexFormat.of();
-//        return hexFormat.formatHex(digest);
-//    }
 }

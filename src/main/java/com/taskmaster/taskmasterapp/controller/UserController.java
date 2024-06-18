@@ -19,5 +19,4 @@ public class UserController {
     public String userPage() {
         return "user";
     }
-
 }

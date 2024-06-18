@@ -3,7 +3,6 @@ package com.taskmaster.taskmasterapp.controller;
 import com.taskmaster.taskmasterapp.model.User;
 import com.taskmaster.taskmasterapp.model.UserDTO;
 import com.taskmaster.taskmasterapp.service.EmailService;
-import com.taskmaster.taskmasterapp.service.UserBuilderService;
 import com.taskmaster.taskmasterapp.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +43,6 @@ public class RegistrationController {
             return "registration";
         }
 
-
-        //TODO: no need to create separate service to map pojo. You can remap it in entity class
         User user = User.mapToUser(userDTO);
 
         String validationMessage = userService.checkNewUserCredentials(user);
