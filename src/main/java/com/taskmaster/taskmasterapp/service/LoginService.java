@@ -19,7 +19,6 @@ public class LoginService {
         this.passwordHashingUtil = passwordHashingUtil;
     }
 
-
     public boolean isValidationSucceed(User user, LoginRequest loginRequest, Model model) {
 
         if (user == null || !isPasswordCorrect(user, loginRequest)) {
