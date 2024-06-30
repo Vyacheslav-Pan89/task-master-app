@@ -48,17 +48,7 @@ public class LoginController {
 
         User user = userService.findUserByName(loginRequest.getUserName());
 
-
-            //TODO: please remove these comments
-//        String message = loginService.loginPermission(user, loginRequest);
-//        if (!message.equals("OK")) {
-//            model.addAttribute("message", message);
-//            return "login";
-//        }
-
-        //TODO: boolean is more usable here
-        if (!loginService.isValidationSucceed(user, loginRequest, model))
-        {
+        if (!loginService.isValidationSucceed(user, loginRequest, model)) {
             return "login";
         }
 
