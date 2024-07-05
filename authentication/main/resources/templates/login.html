@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>TaskMaster</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}" type="text/css"/>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to TaskMaster</h1>
+
+    <!-- Warning Messages -->
+    <p class="warning" th:text="${message}"></p>
+
+    <!-- Login Form -->
+    <form action="#" method="post" th:action="@{/login}" th:object="${loginRequest}">
+        <h2>Login</h2>
+        <div class="form-group">
+            <label for="userName">Username:</label>
+            <p class="errors" th:errors="*{userName}"></p>
+            <input id="userName" th:field="*{userName}" type="text"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <p class="errors" th:errors="*{password}"></p>
+            <input id="password" th:field="*{password}" type="password"/>
+        </div>
+        <button type="submit">Login</button>
+    </form>
+
+    <!-- Registration Option -->
+    <p class="registration-option">
+        Don't have an account? <a th:href="@{/registration}">Register here</a>
+    </p>
+</div>
+</body>
+</html>

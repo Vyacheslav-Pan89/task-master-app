@@ -1,0 +1,32 @@
+plugins{
+    id 'java'
+}
+
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    // Add other dependencies specific to this module
+}
+
+
+// Ensure source sets are correctly configured
+sourceSets {
+    main {
+        java {
+            srcDirs = ['authentication/main/java']
+        }
+        resources {
+            srcDirs = ['authentication/main/resources']
+        }
+    }
+    test {
+        java {
+            srcDirs = ['authentication/test/java']
+        }
+        resources {
+            srcDirs = ['authentication/test/resources']
+        }
+    }
+}
+

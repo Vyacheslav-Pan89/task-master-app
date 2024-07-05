@@ -2,19 +2,19 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>Registration - TaskMaster</title>
     <link rel="stylesheet" th:href="@{/css/registration.css}"/>
 </head>
 <body>
 <div class="container">
     <h1>Registration</h1>
-    <form action="#" th:action="@{/registration}" method="post" th:object="${userDTO}">
+    <form action="#" method="post" th:action="@{/registration}" th:object="${userDTO}">
         <div class="form-group">
             <p class="errors" th:text="${message}"></p>
             <label for="username">Username</label>
             <p class="errors" th:errors="*{userName}"></p>
-            <input type="text" id="username" name="username" th:field="*{userName}"/>
+            <input id="username" name="username" th:field="*{userName}" type="text"/>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
@@ -24,7 +24,7 @@
         <div class="form-group">
             <label for="password">Password</label>
             <p class="errors" th:errors="*{password}"></p>
-            <input type="password" id="password" name="password" th:field="*{password}" />
+            <input id="password" name="password" th:field="*{password}" type="password"/>
         </div>
         <div class="form-group">
             <label for="fullName">Full Name</label>

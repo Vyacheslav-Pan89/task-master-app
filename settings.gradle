@@ -1,0 +1,10 @@
+// Root settings.gradle file
+rootProject.name = 'task-master-app' // Set your root project name
+
+// Include your subprojects/modules here
+include 'authentication'
+
+// Add more modules as needed
+
+// Optional: Configure the project directories if they are not in the default locations
+project(':authentication').projectDir = new File(settingsDir, 'authentication')
