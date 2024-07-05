@@ -18,7 +18,7 @@ allprojects {
         // Add other repositories if needed
     }
 }
-allprojects {
+subprojects {
     apply plugin: "io.spring.dependency-management"
     apply plugin: "org.springframework.boot"
 }
@@ -34,43 +34,3 @@ test {
     useJUnitPlatform()
 }
 
-
-
-
-
-//// Root build.gradle file
-//buildscript {
-//    ext {
-//        springBootVersion = '3.3.1' // You can modify this version as needed
-//        // Add other version variables as needed
-//    }
-//    repositories {
-//        mavenCentral()
-//        // Add other repositories if needed
-//    }
-//    dependencies {
-//        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
-//        // Add other classpath dependencies if needed
-//    }
-//}
-
-
-
-//subprojects {
-//    apply plugin: 'org.springframework.boot'
-//    apply plugin: 'io.spring.dependency-management'
-//
-//    sourceCompatibility = '17' // Set your Java version
-//
-//    dependencies {
-//        implementation 'org.springframework.boot:spring-boot-starter'
-//        testImplementation 'org.springframework.boot:spring-boot-starter-test'
-//        // Add other common dependencies if needed
-//    }
-//
-//    bootJar {
-//        mainClass  = 'com.taskmaster.authentication.TaskMasterAppApplication'
-//    }
-
-
-    // Additional common configuration can be added here
