@@ -9,13 +9,12 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 allprojects {
-    group = 'com.taskmaster' // Set your project group
-    version = '0.0.1-SNAPSHOT' // Set your project version
+    group = 'com.taskmaster'
+    version = '0.0.1-SNAPSHOT'
 
 
     repositories {
         mavenCentral()
-        // Add other repositories if needed
     }
 }
 subprojects {
