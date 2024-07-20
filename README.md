@@ -18,7 +18,7 @@ cd task-master-app
 
 2. **Run the application:**
 
-mvn spring-boot
+./gradlew bootRun
 
 3. **Access the application:**
 
@@ -52,7 +52,7 @@ Open a web browser and navigate to `http://localhost:8080`
 
 ## Development Status
 
-Task Master App is currently in active development, focusing on enhancing existing features and implementing planned functionalities. Your feedback and contributions are highly appreciated to make this application even better!
+Task Master App is currently in active development, focusing on enhancing existing features and implementing planned functionalities. Recently, the project has migrated from Maven to Gradle for better build management. Your feedback and contributions are highly appreciated to make this application even better!
 
 ## License
 
