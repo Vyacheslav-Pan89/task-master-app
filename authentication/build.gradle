@@ -11,7 +11,7 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-mail'
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 
-    implementation 'org.eclipse.dirigible:dirigible-database-h2:10.6.4'
+    implementation 'com.h2database:h2:2.3.232'
 
     compileOnly "org.projectlombok:lombok:${lombokVersion}"
     annotationProcessor "org.projectlombok:lombok:${lombokVersion}"
