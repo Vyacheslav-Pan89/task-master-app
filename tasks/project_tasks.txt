@@ -47,7 +47,7 @@ Requests can be like:
 - delete task from user
 ... you can add more if needed
 
-Please create new branch task-3.5-communication-with-task-generator-server
+Please create new branch task-3.4-communication-with-task-generator-server
 Your first module "authentication" will send request to "task-generator" module. So you need to create service where will be implemented communication logic.
 Use restTemplate from spring. It's very easy. Add to .html page "generate" button for generating tasks.
 How it will look?
