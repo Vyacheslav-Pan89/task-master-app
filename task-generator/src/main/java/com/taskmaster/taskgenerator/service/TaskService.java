@@ -1,4 +1,4 @@
-package com.taskmaster.authentication.service;
+package com.taskmaster.taskgenerator.service;
 
 import org.springframework.stereotype.Service;
 

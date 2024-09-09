@@ -1,6 +1,6 @@
-package com.taskmaster.authentication.repository;
+package com.taskmaster.taskgenerator.repository;
 
-import com.taskmaster.authentication.model.Task;
+import com.taskmaster.taskgenerator.model.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

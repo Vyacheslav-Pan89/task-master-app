@@ -1,6 +1,6 @@
-package com.taskmaster.authentication.controller;
+package com.taskmaster.taskgenerator.controller;
 
-import com.taskmaster.authentication.service.TaskService;
+import com.taskmaster.taskgenerator.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 

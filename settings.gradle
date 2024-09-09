@@ -3,4 +3,4 @@ rootProject.name = 'task-master-app'
 
 
 include 'authentication'
-
+include 'task-generator'

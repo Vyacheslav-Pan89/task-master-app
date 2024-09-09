@@ -1,4 +1,4 @@
-package com.taskmaster.authentication.model;
+package com.taskmaster.taskgenerator.model;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
