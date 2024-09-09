@@ -1,0 +1,39 @@
+Title: Finish Spring Boot Tutorial
+Category: Work
+Description: Complete the remaining sections of the Spring Boot guide.
+
+Title: Buy Groceries
+Category: Shopping
+Description: Pick up essentials like milk, bread, and eggs.
+
+Title: Read Java Concurrency in Practice
+Category: Personal Development
+Description: Read the first two chapters of the book.
+
+Title: Clean Workspace
+Category: Household
+Description: Organize desk and clean clutter from workspace.
+
+Title: Team Meeting Preparation
+Category: Work
+Description: Prepare agenda for the upcoming team meeting.
+
+Title: Yoga Practice
+Category: Fitness
+Description: Complete a 30-minute morning yoga routine.
+
+Title: Plan Weekend Trip
+Category: Personal
+Description: Research locations and activities for a weekend getaway.
+
+Title: Update LinkedIn Profile
+Category: Work
+Description: Add recent projects and update professional summary.
+
+Title: Review Java Collections Framework
+Category: Study
+Description: Revise the main Java collections, focusing on maps and sets.
+
+Title: Declutter Email Inbox
+Category: Personal
+Description: Organize and delete unnecessary emails from inbox.

@@ -7,8 +7,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-
 @Getter
 @Setter
 @NoArgsConstructor
@@ -16,7 +14,6 @@ import java.time.LocalDate;
 @Entity
 @Table
 public class Task {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,10 +23,18 @@ public class Task {
     String title;
 
     @NotBlank(message = "Can't be blank")
+    String category;
+
+    @NotBlank(message = "Can't be blank")
     String description;
 
-    LocalDate dueDate;
+    @Enumerated(value = EnumType.STRING)
+    TaskStatus taskStatus;
 
-    boolean completed;
-
+    public Task(String title, String category, String description, TaskStatus taskStatus) {
+        this.title = title;
+        this.category = category;
+        this.description = description;
+        this.taskStatus = taskStatus;
+    }
 }
