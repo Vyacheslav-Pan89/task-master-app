@@ -5,6 +5,7 @@ import com.taskmaster.taskgenerator.model.TaskStatus;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+//TODO: no, please use SQL scripts for initial table initialization with data. Read about data.sql and schema.sql
 @Component
 public class TaskLoader implements CommandLineRunner {
 

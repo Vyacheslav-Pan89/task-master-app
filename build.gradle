@@ -3,12 +3,14 @@ plugins {
     id "org.springframework.boot" version "3.3.1"
     id "io.spring.dependency-management" version "1.1.5"
 }
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-}
+
+// I guess all these dependencies can be removed. Submodules have it's own
+//dependencies {
+//    implementation 'org.springframework.boot:spring-boot-starter'
+//    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+//    implementation 'org.springframework.boot:spring-boot-starter-web'
+//    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//}
 allprojects {
     group = 'com.taskmaster'
     version = '0.0.1-SNAPSHOT'
