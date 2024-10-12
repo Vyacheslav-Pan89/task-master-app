@@ -5,5 +5,5 @@ CREATE TABLE task (
     title VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,
-    taskStatus task_status
+    taskStatus task_status DEFAULT 'NOT_STARTED'
 );
