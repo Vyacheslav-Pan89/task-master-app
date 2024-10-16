@@ -29,6 +29,7 @@ public class Task {
     String description;
 
     @Enumerated(value = EnumType.STRING)
+    @Column(name = "task_status")
     TaskStatus taskStatus;
 
     public Task(String title, String category, String description, TaskStatus taskStatus) {
