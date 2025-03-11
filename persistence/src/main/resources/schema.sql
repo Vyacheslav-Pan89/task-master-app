@@ -1,0 +1,20 @@
+
+CREATE TABLE task (
+    id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    description VARCHAR(255) NOT NULL,
+    task_status ENUM ('NOT_STARTED', 'STARTED', 'COMPLETED') DEFAULT 'NOT_STARTED'
+);
+
+CREATE TABLE user_data (
+ id BIGINT NOT NULL PRIMARY KEY,
+ userName VARCHAR(255),
+ hashedPassword VARCHAR(255),
+ email VARCHAR(255),
+ fullName VARCHAR(255),
+ status VARCHAR(20) CHECK (status IN ('NOT_ACTIVATED', 'ACTIVATED', 'PENDING', 'BLOCKED'))
+);
+
+
+
