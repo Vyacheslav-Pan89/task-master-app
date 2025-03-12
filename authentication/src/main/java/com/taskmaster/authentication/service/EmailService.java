@@ -1,6 +1,7 @@
 package com.taskmaster.authentication.service;
 
-import com.taskmaster.authentication.model.User;
+
+import com.taskmaster.persistence.model.User;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;

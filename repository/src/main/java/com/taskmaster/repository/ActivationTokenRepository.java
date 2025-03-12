@@ -1,6 +1,6 @@
-package com.taskmaster.authentication.repository;
+package com.taskmaster.repository;
 
-import com.taskmaster.authentication.model.ActivationToken;
+import com.taskmaster.model.ActivationToken;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ActivationTokenRepository extends JpaRepository<ActivationToken, Long> {

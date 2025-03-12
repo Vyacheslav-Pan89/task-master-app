@@ -1,22 +1,18 @@
 package com.taskmaster.authentication.service;
 
-import com.taskmaster.authentication.model.LoginRequest;
-import com.taskmaster.authentication.model.Status;
-import com.taskmaster.authentication.model.User;
 import com.taskmaster.authentication.security.PasswordHashingUtil;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.taskmaster.model.LoginRequest;
+import com.taskmaster.persistence.model.Status;
+import com.taskmaster.persistence.model.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 @Service
+@RequiredArgsConstructor
 public class LoginService {
 
     private final PasswordHashingUtil passwordHashingUtil;
-
-    @Autowired
-    public LoginService(PasswordHashingUtil passwordHashingUtil) {
-        this.passwordHashingUtil = passwordHashingUtil;
-    }
 
     public boolean isValidationSucceed(User user, LoginRequest loginRequest, Model model) {
 

@@ -1,17 +1,18 @@
 package com.taskmaster.authentication.service;
 
-import com.taskmaster.authentication.model.ActivationToken;
-import com.taskmaster.authentication.model.Status;
-import com.taskmaster.authentication.model.User;
-import com.taskmaster.authentication.repository.ActivationTokenRepository;
-import com.taskmaster.authentication.repository.UserRepository;
 import com.taskmaster.authentication.security.PasswordHashingUtil;
 import com.taskmaster.authentication.security.TokenGenerator;
+import com.taskmaster.persistence.model.ActivationToken;
+import com.taskmaster.persistence.model.Status;
+import com.taskmaster.persistence.model.User;
+import com.taskmaster.repository.ActivationTokenRepository;
+import com.taskmaster.repository.UserRepository;
 import jakarta.transaction.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
 
     private static final String LOGIN_EXIST_MESSAGE = "User with this user name is already registered. Try a different user name";
@@ -21,16 +22,6 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordHashingUtil passwordHashingUtil;
     private final ActivationTokenRepository activationTokenRepository;
-
-
-    @Autowired
-    public UserService(TokenGenerator tokenGenerator, UserRepository userRepository, PasswordHashingUtil passwordHashingUtil, ActivationTokenRepository activationTokenRepository) {
-        this.tokenGenerator = tokenGenerator;
-        this.userRepository = userRepository;
-        this.passwordHashingUtil = passwordHashingUtil;
-        this.activationTokenRepository = activationTokenRepository;
-    }
-
 
     public User findUserByName(String userName) {
         return userRepository.findByUserName(userName).orElse(null);

@@ -1,12 +1,13 @@
 package com.taskmaster.authentication.controller;
 
-import com.taskmaster.authentication.model.LoginRequest;
-import com.taskmaster.authentication.model.User;
 import com.taskmaster.authentication.security.PasswordHashingUtil;
 import com.taskmaster.authentication.service.LoginService;
 import com.taskmaster.authentication.service.UserService;
+import com.taskmaster.model.LoginRequest;
+
+import com.taskmaster.model.User;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -17,18 +18,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping({"/", "/login"})
+@RequiredArgsConstructor
 public class LoginController {
 
     private final UserService userService;
     private final PasswordHashingUtil passwordHashingUtil;
     private final LoginService loginService;
-
-    @Autowired
-    public LoginController(UserService userService, PasswordHashingUtil passwordHashingUtil, LoginService loginService) {
-        this.userService = userService;
-        this.passwordHashingUtil = passwordHashingUtil;
-        this.loginService = loginService;
-    }
 
     @GetMapping
     public String login(Model model) {

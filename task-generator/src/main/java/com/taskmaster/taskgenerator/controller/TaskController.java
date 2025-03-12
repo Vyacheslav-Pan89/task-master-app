@@ -1,10 +1,10 @@
 package com.taskmaster.taskgenerator.controller;
 
-import com.taskmaster.taskgenerator.model.Task;
-import com.taskmaster.taskgenerator.repository.TaskRepository;
+import com.taskmaster.model.Task;
+import com.taskmaster.repository.TaskRepository;
 import com.taskmaster.taskgenerator.service.TaskService;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,16 +18,11 @@ import java.util.List;
 @Controller
 @RestController
 @RequestMapping("/")
+@RequiredArgsConstructor
 public class TaskController {
 
     private final TaskService taskService;
     private final TaskRepository taskRepository;
-
-    @Autowired
-    public TaskController(TaskService taskService, TaskRepository taskRepository) {
-        this.taskService = taskService;
-        this.taskRepository = taskRepository;
-    }
 
     @GetMapping("/tasks")
     public List<Task> getAllTasks() {

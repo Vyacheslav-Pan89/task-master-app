@@ -15,6 +15,7 @@
         <module>authentication</module>
         <module>persistence</module>
         <module>task-generator</module>
+        <module>repository</module>
     </modules>
 
     <properties>

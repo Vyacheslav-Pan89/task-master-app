@@ -10,16 +10,30 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>task-generator</artifactId>
+    <artifactId>repository</artifactId>
 
+    <properties>
+        <h2.version>2.3.232</h2.version>
+    </properties>
     <dependencies>
-
         <dependency>
             <groupId>com.example</groupId>
-            <artifactId>repository</artifactId>
+            <artifactId>persistence</artifactId>
             <version>1.0.0</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${h2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>authentication</artifactId>
+            <version>1.0.0</version>
+            <scope>compile</scope>
+        </dependency>
+
     </dependencies>
 
     <build>

@@ -1,11 +1,11 @@
 package com.taskmaster.authentication.controller;
 
-import com.taskmaster.authentication.model.User;
-import com.taskmaster.authentication.model.UserDTO;
 import com.taskmaster.authentication.service.EmailService;
 import com.taskmaster.authentication.service.UserService;
+import com.taskmaster.persistence.model.User;
+import com.taskmaster.persistence.model.UserDTO;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -16,18 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/registration")
+@RequiredArgsConstructor
 public class RegistrationController {
 
     private final UserService userService;
     private final EmailService emailService;
-
-
-    @Autowired
-    public RegistrationController(UserService userService, EmailService emailService) {
-        this.userService = userService;
-        this.emailService = emailService;
-
-    }
 
     @GetMapping
     public String registrationForm(Model model) {
