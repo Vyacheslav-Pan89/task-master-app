@@ -1,0 +1,28 @@
+package com.taskmaster.service.security;
+
+import org.springframework.stereotype.Service;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+@Service
+public class PasswordHashingUtil {
+
+    public String hashPassword(String inputPassword) {
+
+        MessageDigest md;
+        try {
+            md = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            //TODO: Create your own custom exception which extends RunTimeException. It's Purpose to catch it and handle in future using ControllerAdvice
+            throw new RuntimeException(e);
+        }
+        md.update(inputPassword.getBytes());
+        byte[] digest = md.digest();
+        StringBuilder stringBuilder = new StringBuilder();
+        for (byte b : digest) {
+            stringBuilder.append(String.format("%02x", b));
+        }
+        return stringBuilder.toString();
+    }
+}

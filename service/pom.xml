@@ -11,20 +11,17 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>repository</artifactId>
+    <artifactId>service</artifactId>
 
-    <properties>
-        <h2.version>2.3.232</h2.version>
-    </properties>
     <dependencies>
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>${h2.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.example</groupId>
             <artifactId>persistence</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.example</groupId>
+            <artifactId>repository</artifactId>
             <version>1.0.0</version>
         </dependency>
     </dependencies>

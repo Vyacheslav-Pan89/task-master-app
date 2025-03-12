@@ -1,6 +1,6 @@
 package com.taskmaster.repository;
 
-import com.taskmaster.model.Task;
+import com.taskmaster.persistence.domain.Task;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
