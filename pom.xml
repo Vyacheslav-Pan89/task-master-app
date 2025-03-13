@@ -23,6 +23,7 @@
         <java.version>17</java.version>
         <spring.version>3.4.3</spring.version>
         <lombok.version>1.18.36</lombok.version>
+        <spring-security-test.verion>6.4.3</spring-security-test.verion>
     </properties>
 
     <dependencies>
