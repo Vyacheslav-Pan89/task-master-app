@@ -1,6 +1,6 @@
 package com.taskmaster.repository;
 
-import com.taskmaster.persistence.domain.User;
+import com.taskmaster.domain.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
