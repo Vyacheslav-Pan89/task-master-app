@@ -7,6 +7,9 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+import java.util.Set;
+
 
 @Data
 @AllArgsConstructor
@@ -14,7 +17,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "user_data")
 @Builder
-public class User {
+public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +32,9 @@ public class User {
 
     @Enumerated(value = EnumType.STRING)
     private Status status;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private Set<UserRole> roles;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private ActivationToken activationToken;

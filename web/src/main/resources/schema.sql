@@ -14,7 +14,8 @@ CREATE TABLE user_data (
  email VARCHAR(255),
  activation_token_id BIGINT UNIQUE,
  full_name VARCHAR(255),
- status VARCHAR(20) CHECK (status IN ('NOT_ACTIVATED', 'ACTIVATED', 'PENDING', 'BLOCKED'))
+ status VARCHAR(20) CHECK (status IN ('NOT_ACTIVATED', 'ACTIVATED', 'PENDING', 'BLOCKED')),
+ role VARCHAR(16) DEFAULT 'USER'
 );
 
 CREATE TABLE activation_token (
@@ -22,4 +23,11 @@ CREATE TABLE activation_token (
     token VARCHAR(255),
     user_id BIGINT UNIQUE,
     FOREIGN KEY (user_id) REFERENCES user_data(id) ON DELETE CASCADE
+);
+
+CREATE TABLE user_roles (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    role VARCHAR(255) NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES user_data(id)
 );

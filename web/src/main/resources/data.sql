@@ -23,4 +23,8 @@ VALUES  (1, 'Finish Spring Boot Tutorial', 'Work',
 
 INSERT INTO user_data (id, user_name, hashed_password, email, full_name, status)
 VALUES(1, 'j_doe', '161ebd7d45089b3446ee4e0d86dbcf92', 'jDoe@mail.com', 'John Doe', 'ACTIVATED'),
-     (2, 'admin', '161ebd7d45089b3446ee4e0d86dbcf92', 'admin@mail.com', 'ADMIN ADMIN', 'ACTIVATED');
+     (2, 'admin', 'P@ssw0rd', 'admin@mail.com', 'ADMIN ADMIN', 'ACTIVATED');
+
+INSERT INTO user_roles (user_id, role) VALUES (1, 'USER');
+INSERT INTO user_roles (user_id, role) VALUES (2, 'USER');
+INSERT INTO user_roles (user_id, role) VALUES (2, 'ADMIN');
