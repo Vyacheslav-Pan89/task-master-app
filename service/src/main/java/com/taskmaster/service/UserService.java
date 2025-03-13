@@ -3,6 +3,7 @@ package com.taskmaster.service;
 import com.taskmaster.domain.ActivationToken;
 import com.taskmaster.domain.Status;
 import com.taskmaster.domain.User;
+import com.taskmaster.exception.UsernameNotFoundException;
 import com.taskmaster.repository.ActivationTokenRepository;
 import com.taskmaster.repository.UserRepository;
 import com.taskmaster.security.PasswordHashingUtil;
@@ -24,7 +25,8 @@ public class UserService {
     private final ActivationTokenRepository activationTokenRepository;
 
     public User findUserByName(String userName) {
-        return userRepository.findByUserName(userName).orElse(null);
+        return userRepository.findByUserName(userName).orElseThrow(() ->
+                new UsernameNotFoundException("User not found"));
     }
 
     public void add(User user) {

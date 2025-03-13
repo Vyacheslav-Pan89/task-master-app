@@ -25,7 +25,6 @@ public class User {
     private String hashedPassword;
 
     private String email;
-
     private String fullName;
 
     @Enumerated(value = EnumType.STRING)

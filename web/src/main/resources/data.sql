@@ -21,6 +21,6 @@ VALUES  (1, 'Finish Spring Boot Tutorial', 'Work',
  'Organize and delete unnecessary emails from inbox.');
 
 
-INSERT INTO user_data (id, userName, hashedPassword, email, fullName, status)
+INSERT INTO user_data (id, user_name, hashed_password, email, full_name, status)
 VALUES(1, 'j_doe', '161ebd7d45089b3446ee4e0d86dbcf92', 'jDoe@mail.com', 'John Doe', 'ACTIVATED'),
      (2, 'admin', '161ebd7d45089b3446ee4e0d86dbcf92', 'admin@mail.com', 'ADMIN ADMIN', 'ACTIVATED');

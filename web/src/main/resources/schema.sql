@@ -9,12 +9,17 @@ CREATE TABLE task (
 
 CREATE TABLE user_data (
  id BIGINT NOT NULL PRIMARY KEY,
- userName VARCHAR(255),
- hashedPassword VARCHAR(255),
+ user_name VARCHAR(255),
+ hashed_password VARCHAR(255),
  email VARCHAR(255),
- fullName VARCHAR(255),
+ activation_token_id BIGINT UNIQUE,
+ full_name VARCHAR(255),
  status VARCHAR(20) CHECK (status IN ('NOT_ACTIVATED', 'ACTIVATED', 'PENDING', 'BLOCKED'))
 );
 
-
-
+CREATE TABLE activation_token (
+    token_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    token VARCHAR(255),
+    user_id BIGINT UNIQUE,
+    FOREIGN KEY (user_id) REFERENCES user_data(id) ON DELETE CASCADE
+);
