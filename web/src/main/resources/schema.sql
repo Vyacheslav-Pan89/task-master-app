@@ -1,6 +1,7 @@
 
 CREATE TABLE task (
     id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    user_id BIGINT NULL,
     title VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL,
     description VARCHAR(255) NOT NULL,

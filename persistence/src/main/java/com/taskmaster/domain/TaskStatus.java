@@ -1,5 +1,18 @@
 package com.taskmaster.domain;
 
+import lombok.Getter;
+
+@Getter
 public enum TaskStatus {
-    NOT_STARTED, STARTED, COMPLETED
+
+    NOT_STARTED("Not started"),
+    STARTED("Sstarted"),
+    COMPLETED("Completed");
+
+    private final String displayName;
+
+    TaskStatus(String displayName) {
+        this.displayName = displayName;
+    }
+
 }

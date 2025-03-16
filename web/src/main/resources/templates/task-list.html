@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>Task List</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="stylesheet" th:href="@{/css/task-list.css}"/>
 </head>
 <body>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Thymeleaf iteration to populate table with active tasks -->
+    <tr th:each="task : ${taskList}">
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.category}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.taskStatus.displayName}"></td>
+    </tr>
+    </tbody>
+</table>
 
 </body>
 </html>

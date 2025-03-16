@@ -9,10 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,21 +18,15 @@ import java.util.List;
 @RequiredArgsConstructor
 public class TaskController {
 
-    private final TaskService taskService;
-    private final TaskRepository taskRepository;
 
-    @GetMapping("/tasks")
-    public List<Task> getAllTasks(@AuthenticationPrincipal User user) {
-        return taskService.allTasks();
-    }
+//    @PostMapping("/tasks")
+//    public String addTask(@Valid Task task, BindingResult bindingResult, Model model) {
+//        if (bindingResult.hasErrors()) {
+//            model.addAttribute("errors", bindingResult.getAllErrors());
+//            return "some string";
+//        }
+//        taskService.add(task);
+//        return "some string";
+//    }
 
-    @PostMapping("/tasks")
-    public String addTask(@Valid Task task, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
-            model.addAttribute("errors", bindingResult.getAllErrors());
-            return "some string";
-        }
-        taskService.add(task);
-        return "some string";
-    }
 }

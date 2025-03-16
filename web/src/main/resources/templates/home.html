@@ -17,17 +17,19 @@
 <table>
     <thead>
     <tr>
-        <th>Task Name</th>
+        <th>Title</th>
+        <th>Category</th>
         <th>Description</th>
-        <th>Priority</th>
+        <th>Status</th>
     </tr>
     </thead>
     <tbody>
     <!-- Thymeleaf iteration to populate table with active tasks -->
     <tr th:each="task : ${activeTasks}">
-        <td th:text="${task.name}"></td>
+        <td th:text="${task.task.title}"></td>
+        <td th:text="${task.category}"></td>
         <td th:text="${task.description}"></td>
-        <td th:text="${task.priority}"></td>
+        <td th:text="${task.taskStatus.displayName}"></td>
     </tr>
     </tbody>
 </table>

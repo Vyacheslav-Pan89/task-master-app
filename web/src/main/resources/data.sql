@@ -22,9 +22,14 @@ VALUES  (1, 'Finish Spring Boot Tutorial', 'Work',
 
 
 INSERT INTO user_data (id, user_name, hashed_password, email, full_name, status)
-VALUES(1, 'j_doe', '161ebd7d45089b3446ee4e0d86dbcf92', 'jDoe@mail.com', 'John Doe', 'ACTIVATED'),
-     (2, 'admin', 'P@ssw0rd', 'admin@mail.com', 'ADMIN ADMIN', 'ACTIVATED');
+VALUES (1, 'j_doe', '$2a$12$nwwPEsqsHXdAo7X8lvaKSeIdIbs75IFjsKJYdCcYT6xzn.Za60Kh6', 'jDoe@mail.com', 'John Doe', 'ACTIVATED'),
+       (2, 'admin', '$2a$12$nwwPEsqsHXdAo7X8lvaKSeIdIbs75IFjsKJYdCcYT6xzn.Za60Kh6', 'admin@mail.com', 'ADMIN ADMIN', 'ACTIVATED');
 
-INSERT INTO user_roles (user_id, role) VALUES (1, 'USER');
-INSERT INTO user_roles (user_id, role) VALUES (2, 'USER');
-INSERT INTO user_roles (user_id, role) VALUES (2, 'ADMIN');
+INSERT INTO user_roles (user_id, role)
+VALUES (1, 'USER'),
+       (2, 'USER'),
+       (2, 'ADMIN');
+
+INSERT INTO activation_token (token_id, token, user_id)
+VALUES (1, '13cff00b-35b1-4240-81b4-9d9e590cfe3a', 1),
+       (2, 'e0901c93-caa6-4486-8ffa-a56809820bae', 2);

@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.mapping.ToOne;
 
 @Data
 @NoArgsConstructor
@@ -29,6 +30,10 @@ public class Task {
     @Enumerated(value = EnumType.STRING)
     @Column(name = "task_status")
     TaskStatus taskStatus;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = true)
+    private User user;
 
     public Task(String title, String category, String description, TaskStatus taskStatus) {
         this.title = title;

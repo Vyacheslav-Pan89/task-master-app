@@ -1,0 +1,48 @@
+/* Body styles */
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    color: #008080; /* Dark greenish-blue text color */
+    font-family: Arial, sans-serif; /* Use a common font for text */
+    margin: 20px;
+}
+
+/* Table styles */
+table {
+    border-collapse: collapse; /* Collapse table borders */
+    width: 100%; /* Full width */
+    background-color: white; /* White background for contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for better visibility */
+    border-radius: 8px; /* Slightly rounded corners */
+    overflow: hidden; /* Ensure borders are applied correctly */
+}
+
+th, td {
+    border: 1px solid #dddddd; /* Light gray border */
+    text-align: left; /* Align text to left */
+    padding: 12px; /* Increased padding for better spacing */
+}
+
+th {
+    background-color: #008080; /* Greenish-blue background for table headers */
+    color: white; /* White text color for table headers */
+    text-transform: uppercase; /* Uppercase for a modern look */
+}
+
+/* Hover effect for table rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Alternate row coloring */
+}
+
+tr:hover {
+    background-color: #d4f0f0; /* Light teal background on hover */
+}
+
+/* Responsive table */
+@media screen and (max-width: 600px) {
+    table {
+        font-size: 14px; /* Adjust font size for small screens */
+    }
+    th, td {
+        padding: 8px; /* Reduce padding for smaller screens */
+    }
+}

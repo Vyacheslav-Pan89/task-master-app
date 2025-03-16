@@ -5,31 +5,49 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.OrRequestMatcher;
 
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
+
+    private final OrRequestMatcher publicRequests = new OrRequestMatcher(
+            new AntPathRequestMatcher("/login/**"),
+            new AntPathRequestMatcher("/h2-console/**"),
+            new AntPathRequestMatcher("/css/**"),
+            new AntPathRequestMatcher("/static/**"),
+            new AntPathRequestMatcher("/registration"),
+            new AntPathRequestMatcher("/"),
+            new AntPathRequestMatcher("/error"));
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.csrf(AbstractHttpConfigurer::disable)
-                .headers(headers -> headers.frameOptions().disable())
-                .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/h2-console/**", "/css/**", "/static/**", "/registration", "/")
-                        .permitAll()
-                        .requestMatchers("/home").authenticated()
+        http.authorizeHttpRequests(requests -> requests
+                        .requestMatchers(publicRequests).permitAll()
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .disable())
-                .logout(logout -> logout
+                        .loginProcessingUrl("/login")
+                        .usernameParameter("userName")
+                        .passwordParameter("password")
+                        .defaultSuccessUrl("/home", true)
+                        .failureUrl("/login?error=true")
+                        .permitAll())
+                .logout(request -> request
                         .logoutUrl("/logout")
-                        .logoutSuccessUrl("/"));
+                        .logoutSuccessUrl("/login")
+                        .invalidateHttpSession(true))
+                .csrf(csrf -> csrf
+                        .ignoringRequestMatchers("/h2-console/**"))
+                .headers(headers -> headers
+                        .frameOptions(HeadersConfigurer.FrameOptionsConfig::disable));
         return http.build();
     }
 

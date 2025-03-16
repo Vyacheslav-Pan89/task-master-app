@@ -1,4 +1,3 @@
-
 package com.taskmaster.domain;
 
 import jakarta.persistence.*;

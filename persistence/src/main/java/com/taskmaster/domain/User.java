@@ -17,7 +17,7 @@ import java.util.Set;
 @Entity
 @Table(name = "user_data")
 @Builder
-public class User{
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,11 +33,14 @@ public class User{
     @Enumerated(value = EnumType.STRING)
     private Status status;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<UserRole> roles;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private ActivationToken activationToken;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Task> taskList;
 
     public static User mapToUser(UserModel userDTO) {
 
