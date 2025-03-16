@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Details</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="stylesheet" th:href="@{/css/task-details.css}"/>
+</head>
+<body>
+
+<div class="container">
+    <h2>Task Details</h2>
+    <p><strong>Title:</strong> <span th:text="${task.title}"></span></p>
+    <p><strong>Category:</strong> <span th:text="${task.category}"></span></p>
+    <p><strong>Description:</strong> <span th:text="${task.description}"></span></p>
+    <p><strong>Status:</strong> <span th:text="${task.taskStatus.displayName}"></span></p>
+    <p><strong>Assigned User:</strong>
+        <span th:text="${task.user != null ? task.user.username : 'Unassigned'}"></span>
+    </p>
+
+    <h3>Assign User</h3>
+    <form th:action="@{/task-details/assign}" method="post">
+        <input type="hidden" name="taskId" th:value="${task.id}"/>
+        <select name="userId">
+            <option value="">-- Select User --</option>
+            <option th:each="user : ${userList}"
+                    th:value="${user.id}"
+                    th:text="${user.fullName}">
+            </option>
+        </select>
+        <button type="submit">Assign</button>
+    </form>
+
+    <a th:href="@{/task-list}">Back to Task List</a>
+</div>
+
+</body>
+</html>

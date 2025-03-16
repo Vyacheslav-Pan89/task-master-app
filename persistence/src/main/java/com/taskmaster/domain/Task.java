@@ -31,7 +31,7 @@ public class Task {
     @Column(name = "task_status")
     TaskStatus taskStatus;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = true)
     private User user;
 

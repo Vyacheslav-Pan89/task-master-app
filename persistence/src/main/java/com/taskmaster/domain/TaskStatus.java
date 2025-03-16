@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum TaskStatus {
 
     NOT_STARTED("Not started"),
-    STARTED("Sstarted"),
+    STARTED("Started"),
     COMPLETED("Completed");
 
     private final String displayName;

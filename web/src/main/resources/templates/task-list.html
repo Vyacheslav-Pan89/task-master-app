@@ -7,6 +7,7 @@
     <link rel="stylesheet" th:href="@{/css/task-list.css}"/>
 </head>
 <body>
+
 <table>
     <thead>
     <tr>
@@ -14,15 +15,20 @@
         <th>Category</th>
         <th>Description</th>
         <th>Status</th>
+        <th>Assigned User</th>
+        <th>Action</th>
     </tr>
     </thead>
     <tbody>
-    <!-- Thymeleaf iteration to populate table with active tasks -->
     <tr th:each="task : ${taskList}">
         <td th:text="${task.title}"></td>
         <td th:text="${task.category}"></td>
         <td th:text="${task.description}"></td>
         <td th:text="${task.taskStatus.displayName}"></td>
+        <td th:text="${task.user != null ? task.user.fullName : 'Unassigned'}"></td>
+        <td>
+            <a th:href="@{/task-details/{id}(id=${task.id})}">View Details</a>
+        </td>
     </tr>
     </tbody>
 </table>
