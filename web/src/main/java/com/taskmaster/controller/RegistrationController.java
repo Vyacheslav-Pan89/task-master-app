@@ -28,6 +28,7 @@ public class RegistrationController {
         return "registration";
     }
 
+    //TODO: 500 code. You forgot to add something here))
     @PostMapping
     public String handleRegistration(@Valid UserModel userDTO, BindingResult bindingResult, Model model) {
 
@@ -36,6 +37,7 @@ public class RegistrationController {
             return "registration";
         }
 
+        //TODO: no logic should be in controller. Please move all logic to service layer
         User user = User.mapToUser(userDTO);
 
         String validationMessage = userService.checkNewUserCredentials(user);

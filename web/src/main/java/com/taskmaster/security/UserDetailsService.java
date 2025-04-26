@@ -17,6 +17,7 @@ import java.util.Collection;
 
 @RequiredArgsConstructor
 @Service
+//TODO: you gave name to your class same as spring interface UserDetailsService, so that's why you see full package path but not just interface name. Please rename your class and will will looks much cleaner
 public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(UserDetailsService.class);
@@ -28,10 +29,12 @@ public class UserDetailsService implements org.springframework.security.core.use
         LOGGER.info("Entering loadUserByUserName: {} ", username);
 
         User user = userRepository.findByUserName(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Wrong Username or Password"));
+                .orElseThrow(() -> new UsernameNotFoundException("Wrong Username or Password")); // TODO: your repository here looking only per username, no any data regarding password, so message should be just 'Wrong username'
+
 
         LOGGER.info("Found user:  {}", user.getUserName());
 
+        //TODO: same naming issue as for UserDetailsService. Please rename your User class
         return new org.springframework.security.core.userdetails.User(
                 user.getUserName(),
                 user.getHashedPassword(),
