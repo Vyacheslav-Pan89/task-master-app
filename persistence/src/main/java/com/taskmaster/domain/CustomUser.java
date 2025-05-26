@@ -17,7 +17,7 @@ import java.util.Set;
 @Entity
 @Table(name = "user_data")
 @Builder
-public class User {
+public class CustomUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,9 +42,9 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Task> taskList;
 
-    public static User mapToUser(UserModel userDTO) {
+    public static CustomUser mapToUser(UserModel userDTO) {
 
-        return User.builder()
+        return CustomUser.builder()
                 .userName(userDTO.getUserName())
                 .email(userDTO.getEmail())
                 .fullName(userDTO.getFullName())

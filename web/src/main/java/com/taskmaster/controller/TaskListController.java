@@ -1,7 +1,7 @@
 package com.taskmaster.controller;
 
 import com.taskmaster.domain.Task;
-import com.taskmaster.domain.User;
+import com.taskmaster.domain.CustomUser;
 import com.taskmaster.service.TaskService;
 import com.taskmaster.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -24,7 +24,7 @@ public class TaskListController {
     }
 
     @ModelAttribute("userList")
-    public List<User> getUserList() {
+    public List<CustomUser> getUserList() {
         return userService.getUserList();
     }
 

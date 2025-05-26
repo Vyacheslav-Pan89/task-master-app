@@ -1,6 +1,6 @@
 package com.taskmaster.service;
 
-import com.taskmaster.domain.User;
+import com.taskmaster.domain.CustomUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -16,7 +16,7 @@ public class EmailService {
         this.mailSender = mailSender;
     }
 
-    public void sendEmail(User user) {
+    public void sendEmail(CustomUser user) {
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setTo(user.getEmail());

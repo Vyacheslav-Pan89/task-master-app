@@ -24,7 +24,6 @@ public class SecurityConfig {
             new AntPathRequestMatcher("/css/**"),
             new AntPathRequestMatcher("/static/**"),
             new AntPathRequestMatcher("/registration"),
-            new AntPathRequestMatcher("/"), //TODO: you can remove '/'
             new AntPathRequestMatcher("/error"));
 
     @Bean
@@ -34,12 +33,7 @@ public class SecurityConfig {
                         .anyRequest().authenticated())
                 .formLogin(form -> form
                         .loginPage("/login")
-                        //TODO: loginProcessingUrl("/login") - this is default spring url, no need to explicitly invoke it
-                        .loginProcessingUrl("/login")
-                        //TODO: .usernameParameter("userName") - for spring default name will be username, so here you did everything correct, but if you will change userName variable to username in LoginRequest, you can also remove this line
                         .usernameParameter("userName")
-                        //TODO: .passwordParameter("password") - this is default spring password name, no need to explicitly invoke it
-                        .passwordParameter("password")
                         .defaultSuccessUrl("/home", true)
                         .failureUrl("/login?error=true")
                         .permitAll())

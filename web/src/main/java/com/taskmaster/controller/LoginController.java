@@ -10,21 +10,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping({"/", "/login"}) //TODO: you can remove '/'
+@RequestMapping({"/login"})
 @RequiredArgsConstructor
 public class LoginController {
 
-//
-//    @ModelAttribute("loginRequest")
-//    public LoginRequest getLoginRequest() {
-//        return new LoginRequest();
-//    }
-
-
-    //TODO: you can put ModelAttribute as param in get from method. No need to create separate method
     @GetMapping()
     public String login(@ModelAttribute LoginRequest loginRequest) {
         return "login";

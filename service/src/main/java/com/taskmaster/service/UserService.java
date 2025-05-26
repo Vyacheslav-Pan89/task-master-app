@@ -2,7 +2,7 @@ package com.taskmaster.service;
 
 import com.taskmaster.domain.ActivationToken;
 import com.taskmaster.domain.Status;
-import com.taskmaster.domain.User;
+import com.taskmaster.domain.CustomUser;
 import com.taskmaster.repository.ActivationTokenRepository;
 import com.taskmaster.repository.UserRepository;
 import com.taskmaster.security.PasswordHashingUtil;
@@ -25,11 +25,11 @@ public class UserService {
     private final PasswordHashingUtil passwordHashingUtil;
     private final ActivationTokenRepository activationTokenRepository;
 
-    public User findUserByName(String userName) {
+    public CustomUser findUserByName(String userName) {
         return userRepository.findByUserName(userName).orElse(null);
     }
 
-    public void add(User user) {
+    public void add(CustomUser user) {
 
         String hashedPassword = passwordHashingUtil.hashPassword(user.getHashedPassword());
         user.setHashedPassword(hashedPassword);
@@ -43,11 +43,11 @@ public class UserService {
         activationTokenRepository.save(activationToken);
     }
 
-    public User findUserByUserName(String userName) {
+    public CustomUser findUserByUserName(String userName) {
         return userRepository.findByUserName(userName).orElse(null);
     }
 
-    public String checkNewUserCredentials(User newUser) {
+    public String checkNewUserCredentials(CustomUser newUser) {
 
         return userRepository.findByUserNameOrEmail(newUser.getUserName(), newUser.getEmail())
                 .map(user -> user.getUserName().equals(newUser.getUserName()) ? LOGIN_EXIST_MESSAGE : EMAIL_EXIST_MESSAGE)
@@ -58,7 +58,7 @@ public class UserService {
     @Transactional
     public void activateUser(String token) {
 
-        User user = userRepository.findUserByTokenId(token).orElse(null);
+        CustomUser user = userRepository.findUserByTokenId(token).orElse(null);
         if (user != null) {
             user.setStatus(Status.ACTIVATED);
             userRepository.save(user);
@@ -66,7 +66,7 @@ public class UserService {
 
     }
 
-    public List<User> getUserList() {
+    public List<CustomUser> getUserList() {
         return userRepository.findAll();
     }
 }

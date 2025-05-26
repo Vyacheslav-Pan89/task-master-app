@@ -1,7 +1,7 @@
 package com.taskmaster.security;
 
 
-import com.taskmaster.domain.User;
+import com.taskmaster.domain.CustomUser;
 import com.taskmaster.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -9,7 +9,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
@@ -17,10 +19,10 @@ import java.util.Collection;
 
 @RequiredArgsConstructor
 @Service
-//TODO: you gave name to your class same as spring interface UserDetailsService, so that's why you see full package path but not just interface name. Please rename your class and will will looks much cleaner
-public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(UserDetailsService.class);
+public class CustomUserDetailsService implements UserDetailsService {
+
+    private final Logger LOGGER = LoggerFactory.getLogger(CustomUserDetailsService.class);
     private final UserRepository userRepository;
 
     @Override
@@ -28,20 +30,18 @@ public class UserDetailsService implements org.springframework.security.core.use
 
         LOGGER.info("Entering loadUserByUserName: {} ", username);
 
-        User user = userRepository.findByUserName(username)
-                .orElseThrow(() -> new UsernameNotFoundException("Wrong Username or Password")); // TODO: your repository here looking only per username, no any data regarding password, so message should be just 'Wrong username'
-
+        CustomUser user = userRepository.findByUserName(username)
+                .orElseThrow(() -> new UsernameNotFoundException("Wrong Username"));
 
         LOGGER.info("Found user:  {}", user.getUserName());
 
-        //TODO: same naming issue as for UserDetailsService. Please rename your User class
-        return new org.springframework.security.core.userdetails.User(
+        return new User(
                 user.getUserName(),
                 user.getHashedPassword(),
                 getAuthorities(user));
     }
 
-    private Collection<? extends GrantedAuthority> getAuthorities(User user) {
+    private Collection<? extends GrantedAuthority> getAuthorities(CustomUser user) {
         return user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getRole().name()))
                 .toList();

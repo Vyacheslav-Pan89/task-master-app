@@ -14,7 +14,7 @@ public class UserRole {
 
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    private CustomUser user;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
