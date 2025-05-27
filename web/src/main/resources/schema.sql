@@ -9,7 +9,7 @@ CREATE TABLE task (
 );
 
 CREATE TABLE user_data (
- id BIGINT NOT NULL PRIMARY KEY,
+ id BIGINT NOT NULL PRIMARY KEY AUTO_INCREMENT(3, 1),
  user_name VARCHAR(255),
  hashed_password VARCHAR(255),
  email VARCHAR(255),
@@ -20,7 +20,7 @@ CREATE TABLE user_data (
 );
 
 CREATE TABLE activation_token (
-    token_id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    token_id BIGINT PRIMARY KEY AUTO_INCREMENT(3, 1),
     token VARCHAR(255),
     user_id BIGINT UNIQUE,
     FOREIGN KEY (user_id) REFERENCES user_data(id) ON DELETE CASCADE

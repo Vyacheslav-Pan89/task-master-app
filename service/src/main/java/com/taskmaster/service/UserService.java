@@ -1,8 +1,9 @@
 package com.taskmaster.service;
 
 import com.taskmaster.domain.ActivationToken;
-import com.taskmaster.domain.Status;
 import com.taskmaster.domain.CustomUser;
+import com.taskmaster.domain.Status;
+import com.taskmaster.model.UserModel;
 import com.taskmaster.repository.ActivationTokenRepository;
 import com.taskmaster.repository.UserRepository;
 import com.taskmaster.security.PasswordHashingUtil;
@@ -12,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.PrimitiveIterator;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +26,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordHashingUtil passwordHashingUtil;
     private final ActivationTokenRepository activationTokenRepository;
+    private final EmailService emailService;
 
     public CustomUser findUserByName(String userName) {
         return userRepository.findByUserName(userName).orElse(null);
@@ -68,5 +71,16 @@ public class UserService {
 
     public List<CustomUser> getUserList() {
         return userRepository.findAll();
+    }
+
+    public String processUser(UserModel userDTO) {
+        CustomUser user = CustomUser.mapToUser(userDTO);
+        String validationMessage = checkNewUserCredentials(user);
+        if(validationMessage != null){
+            return validationMessage;
+        }
+        add(user);
+        emailService.sendEmail(user);
+        return null;
     }
 }
